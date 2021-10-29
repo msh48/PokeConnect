@@ -15,11 +15,13 @@ class FetchPokemonData:
                            headers={"Accept": "application/json"})
         return req.json()
 
-    def get_total_number_of_pokemon_items(self, category_id):
+    def get_total_number_of_pokemon_items(self, items_category_id):
         """Gets the total number of pokemon items per category
-            category_id: items category number"""
+            items_category_id: items category number"""
         pass
 
-    def get_total_number_of_pokemon_moves(self):
+    def get_total_number_of_pokemon_moves(self, moves_category_id):
+        """"Gets the total number of pokemon moves per category
+            moves_category_id: moves category number"""
         pass
 

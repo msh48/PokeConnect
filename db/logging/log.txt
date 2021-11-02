@@ -1,0 +1,5 @@
+[02-Nov-2021 17:35:45 America/New_York] PHP Warning:  Undefined variable $server in /home/jack/PokeConnect/db/php/dbListener.php on line 20
+[02-Nov-2021 17:35:45 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function process_requests() on null in /home/jack/PokeConnect/db/php/dbListener.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/jack/PokeConnect/db/php/dbListener.php on line 20

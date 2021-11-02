@@ -1,4 +1,4 @@
-from application.pokemonfetch import FetchPokemonData
+from poke_api_etl.application.pokemonfetch import FetchPokemonData
 
 
 fetchPokemonData = FetchPokemonData()

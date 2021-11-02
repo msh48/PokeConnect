@@ -6,17 +6,17 @@
  //  Switch case is executed depending on the type of request
  switch ($type) {
          
-     case "Login":                                       
+    case "Login":                                       
          
-         $username = $_GET["username"];
-         $password = $_GET["password"];
+        $username = $_GET["username"];
+        $password = $_GET["password"];
          
-         $response = login($username, $password);
-         echo $response;
-         break;
+        $response = login($username, $password);
+        echo $response;
+        break;
 
     default:
-         return "This is the Default case.";
+        return "This is the Default case.";
 }
 
 function login($username, $password){

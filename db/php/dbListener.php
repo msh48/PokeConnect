@@ -18,7 +18,7 @@ function requestProcessor($request){
 	switch($request['type']){
 		case "Login":
 			echo "login";
-			$response_msg = login($request['username'],$request['password']);
+			$response_msg = login($request['username'],$request['password'],$request['email']);
 			break;
 		default:
 			echo "error"

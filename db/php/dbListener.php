@@ -15,8 +15,15 @@ function requestProcessor($request){
 	if(!isset($request['type'])){
 		return array('message'=>"ERROR: Message type is not supported");
 	}
-	echo "error";
-	$response_msg = logAndSendErrors();
+	switch($request['type']){
+		case "Login":
+			echo "login";
+			$response_msg = login($request['username'],$request['password']);
+			break;
+		default:
+			echo "error"
+			$response_msg = logAndSendErrors();	
+	}
 }
 $server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_db.ini', 'testServer');
 $server->process_requests('requestProcessor');

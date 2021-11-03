@@ -16,9 +16,13 @@ function requestProcessor($request){
 		return array('message'=>"ERROR: Message type is not supported");
 	}
 	switch($request['type']){
-		case "Login":
+		case "login":
 			echo "login";
 			$response_msg = login($request['username'],$request['password'],$request['email']);
+			break;
+		case "register":
+			echo "register";
+			$response_msg = register($request['username'],$request['password'],$request['email']);
 			break;
 		default:
 			echo "error"

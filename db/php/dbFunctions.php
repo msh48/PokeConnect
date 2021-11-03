@@ -29,7 +29,7 @@ function logAndSendErrors(){
 
 	file_put_contents("/../logging/log.txt", "");
 }
-function  login($username, $password){
+function  login($username, $password, $email){
 //unsure on pathing to query to
 //search for username, and then find/test corresponding matching password
 //salt/hash

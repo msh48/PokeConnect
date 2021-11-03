@@ -1,8 +1,9 @@
 function sendLogin(username, password){
-	var http;
-//set http to a web request
+	http = new XMLHttpRequest();
 	http.onreadystatechange = function{
-//make this what you want
+		if(this.readyState == 4 && this.status == 200){
+//get username and password elements from html and make		
+		}
 	}
 	http.open("GET", "../php/phpFunctions.php?type=Login&username=" + username + "&password=" + password);
 	http.send(null);

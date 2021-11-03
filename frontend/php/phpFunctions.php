@@ -29,3 +29,4 @@ function login($username, $password){
 	echo $response
 	return $response;
 }
+?>

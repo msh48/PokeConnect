@@ -11,8 +11,23 @@ if(isset($_POST["login"])) {
 	if(isset($_POST["password"])){
 		$password = $_POST['password'];
 	}
-
-
+	if($_SESSION == null){
+    		session_start();
+    	}
+       	$request = array();
+ 	$request['type'] = "login";
+   	$request['username'] = $username;
+	$request['password'] = $password;
+	$response = createClientForDb($request);
+	if($respone == 1) {
+		$_SESSION["username"] = $username;
+		$_SESSION["login"] = true;
+    }
+    else{
+    	session_destroy();
+    }
+    echo $response;
+    return $respone;
 }
 
 if (isset($_POST["register"])) {
@@ -46,8 +61,6 @@ if (isset($_POST["register"])) {
         $isValid = false;
     }
     //TODO other validation as desired, remember this is the last line of defense
-    if ($isValid) {
-        $hash = password_hash($password, PASSWORD_BCRYPT);
     if($_SESSION == null){
     	session_start();
     }

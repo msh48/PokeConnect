@@ -15,7 +15,11 @@ if($response == 1) {
 	echo "registered";
 }
 else{
-  	echo "didn't work";
+	$error = array();
+	$error['type'] = "db";
+	$error['error_string'] = "Username is taken";
+	$response = createClientForRmq($error);
+	
 }
 echo $response;
 return $response;

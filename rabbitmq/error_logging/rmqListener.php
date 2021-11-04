@@ -15,11 +15,14 @@
 
 
     function storeError($error, $fileName){
-        $fp = fopen( $fileName . '.txt', "a" );
-        for ($i = 0; $i < count($error); $i++){
-          fwrite( $fp, $error[$i] );
+	    $fp = fopen( $fileName . '.txt', "a" );
+	$t = new DateTime('NOW');
+	    $u = $t->format('Y-m-d\TH:i:s');
+	$errmess = "[ ".$u." ]"." ".$error.PHP_EOL;    
+        for ($i = 0; $i < strlen($errmess); $i++){
+          fwrite( $fp, $errmess[$i] );
         }
-        return true;
+        return $errmess;
     }
 
 

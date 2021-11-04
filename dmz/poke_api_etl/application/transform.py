@@ -8,20 +8,16 @@ class TransformPokemonData():
     def construct_dataframe(self):
         """Make DataFrame out of data received from Pokemon API."""
         pass
-    @staticmethod
-    def dict_to_json_string(self, pokemon_dict):
-        """Convert dict to JSON to string."""
-        pokemon_json_string = json.dumps(pokemon_dict)
-        pokemon_json = json.loads(pokemon_json_string)
-        return pokemon_json
 
     def make_pokemon_body_with_stats(self, pokemon):
         """Create a JSON body for pokemon stats"""
         pokeDictStats = {}
         pokeType = pokemon['types']
         pokeStats = pokemon['stats']
+        pokeImg = pokemon['sprites']['front_default']
         pokeDictStats['types'] = pokeType
         pokeDictStats['stats'] = pokeStats
+        pokeDictStats['image'] = pokeImg
         return pokeDictStats
 
     def make_pokemon_move_body():

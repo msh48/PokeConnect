@@ -21,7 +21,7 @@ def main(argv):
             pokeDic[name] = pokemonDicStats
         pokeJson = json.dumps(pokeDic)        
         return pokeJson
-
+        
     elif (strArg == 'move'):
         return 0
     elif (strArg == 'item'):

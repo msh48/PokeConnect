@@ -23,7 +23,7 @@ function requestProcessor($request){
 			break;
 		case "register":
 			echo "Requesting to register".PHP_EOL;
-			$response_msg = register($request['username'],$request['password'],$request['email']);
+			$response_msg = register($request['username'],$request['password'], $request['email']);
 			break;
 		default:
 			echo "error".PHP_EOL;

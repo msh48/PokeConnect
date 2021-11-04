@@ -35,3 +35,8 @@ Stack trace:
 [04-Nov-2021 13:44:55 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'testUser'@'localhost' (using password: YES) in /home/jap264/PokeConnect/db/php/dbConnection.php on line 12
 [04-Nov-2021 13:44:55 America/New_York] PHP Notice:  Trying to get property 'connect_errno' of non-object in /home/jap264/PokeConnect/db/php/dbConnection.php on line 15
 [04-Nov-2021 14:37:32 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 22
+[04-Nov-2021 15:33:41 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[04-Nov-2021 15:36:03 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[04-Nov-2021 15:42:29 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[04-Nov-2021 15:44:04 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[04-Nov-2021 15:53:14 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26

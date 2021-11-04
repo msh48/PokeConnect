@@ -6,11 +6,18 @@ class FetchPokemonData:
         self.pokemon_generation_endpoint = 'https://pokeapi.co/api/v2/generation'
         self.pokemon_move_endpoint = 'https://pokeapi.co/api/v2/move'
         self.pokemon_item_endpoint = 'https://pokeapi.co/api/v2/item'
+        self.pokemon_endpoint = 'https://pokeapi.co/api/v2/pokemon/'
 
     def get_total_number_of_pokemon_generation(self, id):
         """Gets the total number of pokemon for generation.
             id: generation number"""
         new_pokemon_endpoint = "{}/{}".format(self.pokemon_generation_endpoint, id)
+        req = requests.get( new_pokemon_endpoint,
+                           headers={"Accept": "application/json"})
+        return req.json()
+
+    def get_pokemon_stats(self, pokemon_name):
+        new_pokemon_endpoint = "{}/{}".format(self.pokemon_endpoint,pokemon_name)
         req = requests.get( new_pokemon_endpoint,
                            headers={"Accept": "application/json"})
         return req.json()

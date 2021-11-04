@@ -5,10 +5,10 @@ require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 require_once('rabbitMQClient.php');
 
-error_reporting(E_ALL);
+/* error_reporting(E_ALL);
 ini_set('display_errors', 'off');
 ini_set('log_errors', 'On');
-ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+ini_set('error_log', dirname(__FILE__).'/../logging/log.txt'); */
 
 /*function logAndSendErrors(){
 	$file = fopen("/../logging/log.txt", "r");

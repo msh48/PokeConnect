@@ -65,6 +65,12 @@ function  register($username, $password, $email){
 
 	$connection = dbConnection();
 
+	//check username if not taken
+	if(!checkUsername($username)){
+		echo "Username is taken.".PHP_EOL;
+		return false;
+	}
+
 	$salt = generateSalt(29);
 
 	$h_password = generateHash($password,$salt);
@@ -74,6 +80,24 @@ function  register($username, $password, $email){
 	$result = $connection->query($new_query);
 
 	return true;	
+}
+
+//checks if username is not taken
+function checkUsername($username){
+	
+	$connection = dbConnection();
+
+	$check_query = "SELECT * FROM users WHERE username = '$username'";
+	$query_result = $connection->query($check_query);
+
+	if($query_result){
+		if($query_result->num_rows == 0){ //username is not taken
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
 
 //hashes password to store in the db

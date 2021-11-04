@@ -1,6 +1,4 @@
 
-
-
 class TransformPokemonData():
 
     def __init__(self):
@@ -14,7 +12,7 @@ class TransformPokemonData():
         """Convert dict to JSON to string."""
         pass
 
-    def make_pokemon_body():
+    def make_pokemon_body(self, pokemons):
         """Create a JSON body for each ticket."""
         pass
 

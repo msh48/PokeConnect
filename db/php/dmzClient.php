@@ -36,6 +36,4 @@ $request['Pokemon'] = "All"
 $response = $client->send_request($request);
 
 $pokemon = createClientForDmz($request);
-echo $pokemon
-
-?>
+echo $pokemon.PHP_EOL;

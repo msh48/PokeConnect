@@ -1,6 +1,5 @@
 import requests
 
-
 class FetchPokemonData:
 
     def __init__(self):

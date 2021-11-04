@@ -20,12 +20,12 @@ function requestProcessor($request){
 }
 
 function callPy($py){
-	$command = escapeshellcmd('../poke_api_etl/app.py');
+	$command = escapeshellcmd('../poke_api_etl/app.py ');
 	$output = shell_exec($command "'.$py.'");
 	echo $output;
 	return $output;
 }
 
-$server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_db.ini', 'testServer');
+$server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_dmz.ini', 'testServer');
 $server->process_requests('requestProcessor');
 ?>

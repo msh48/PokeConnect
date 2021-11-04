@@ -6,9 +6,11 @@ def main(argv):
     strArg = str(argv[1])
     if (strArg == 'All'):
         fetchPokemonData = FetchPokemonData()
-        res = fetchPokemonData.get_total_number_of_pokemon_generation(1)
-        result = res['id']
-        return result
+        pokemonOfGenerationEigtht = fetchPokemonData.get_total_number_of_pokemon_generation(8)
+        pokemons = pokemonOfGenerationEigtht['pokemon_species']
+        # Get other data
+        
+        return pokemons
     elif (strArg == 'move'):
         0
     else:

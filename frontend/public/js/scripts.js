@@ -28,7 +28,7 @@ function validateLogin(){
 // This function sends a AJAX request for login 
 function sendLoginCredentials(username, password){
     
-    var httpReq = createRequestObject();
+    //var httpReq = createRequestObject();
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             

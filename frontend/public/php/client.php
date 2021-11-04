@@ -1,13 +1,14 @@
 <?php
 
- //  Variable for type
- $type = $_GET["type"];
+require_once('rabbitMQClient.php');
 
- //  Switch case is executed depending on the type of request
- switch ($type) {
+//  Variable for type
+$type = $_GET["type"];
+
+//  Switch case is executed depending on the type of request
+switch ($type) {
          
-    case "Login":                                       
-         
+    case "Login":
         $username = $_GET["username"];
         $password = $_GET["password"];
          
@@ -28,7 +29,7 @@ function login($username, $password){
         $request['password'] = $password;
 
         // Send requests to rabbitMQ For Database
-        $returnedValue = rabbitMQClient($request);
+        $returnedValue = rabbitMQClientConnection($request);
         
         if($returnedValue == 1){
             $_SESSION["username"] = $username;

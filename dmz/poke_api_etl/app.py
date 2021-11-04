@@ -4,7 +4,7 @@ import sys
 
 def main(argv):
     strArg = str(argv[1])
-    if (strArg == 'poke'):
+    if (strArg == 'All'):
         fetchPokemonData = FetchPokemonData()
         res = fetchPokemonData.get_total_number_of_pokemon_generation(1)
         result = res['id']

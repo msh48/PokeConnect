@@ -3,6 +3,7 @@ require_once('../rabbitmqphp_example/path.inc');
 require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 require_once('rabbitMQClient.php');
+require_once('dbConnection.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'off');
@@ -31,11 +32,11 @@ function logAndSendErrors(){
 }
 
 //user login
-function login($username, $password, $email){
+function login($username, $password){
 	
 	$connection = dbConnection();
 
-	$query = "SELECT * FROM user WHERE username = '$username'";
+	$query = "SELECT * FROM users WHERE username = '$username'";
 	$result = $connection->query($query);
 
 	if($result){
@@ -48,6 +49,7 @@ function login($username, $password, $email){
 				$salt = $row['salt'];
 				$h_password = generateHash($password,$salt);
 				if ($row['h_password'] == $h_password){
+					echo "User Authenicated".PHP_EOL;
 					return true;
 				}
 				else{
@@ -67,7 +69,7 @@ function  register($username, $password, $email){
 
 	$h_password = generateHash($password,$salt);
 
-	$new_query = "INSERT INTO user VALUES ('$username','$email','$h_password','$salt');
+	$new_query = "INSERT INTO users (username,email,h_password,salt) VALUES ('$username','$email','$h_password','$salt')";
 
 	$result = $connection->query($new_query);
 
@@ -77,7 +79,9 @@ function  register($username, $password, $email){
 //hashes password to store in the db
 function generateHash($password, $salt) {
 	$new = $password . $salt;
-	return hash("sha256",$new);
+	$hash = hash('sha256',$new);
+	echo "Hash: " . $hash.PHP_EOL;
+	return $hash;
 }
 
 //creates a salt for password
@@ -89,9 +93,10 @@ function generateSalt($length) {
 
 	for($i = 0; $i <= $length; $i++) {
 		$rand = rand(0, count($chars) - 1);
-		$string .= $chars[$random];
+		$string .= $chars[$rand];
 	}
-
+	
+	echo "Salt: " . $string .PHP_EOL;
 	return $string;
 }
 ?>

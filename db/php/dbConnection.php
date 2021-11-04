@@ -1,14 +1,14 @@
 <?php
 
 	//Establishes connection to MySQL database
-	
-	$hostname = 'localhost';
-	$user = 'testUser';
-	$password = '12345';
-	$db = 'it490';
 
 	function dbConnection(){
-	
+
+		$hostname = "localhost";
+		$user = "testuser";
+		$password = "12345";
+		$db = "it490";
+
 		$connection = mysqli_connect($hostname,$user,$password,$db);
 
 		if(!$connection){

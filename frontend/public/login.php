@@ -1,4 +1,4 @@
-<!---*************welcome this is my simple empty strap by John Niro Yumang ******************* -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +61,7 @@
 								</label>
 							  </div>
  							<div>
- 									  <input type="submit" class="btn btn-lg btn-primary name="register"  value="Register">
+ 									  <input type="submit" class="btn btn-lg btn-primary   value="Register">
  							</div>
 						</fieldset>
 					</form>

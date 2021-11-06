@@ -22,11 +22,11 @@ def main(argv):
         pokeJson = json.dumps(pokeDic)     
         return pokeJson        
     elif (strArg == 'move'):
-        return {'Not Available' : -1}
+        return "{'Not Available' : -1}"
     elif (strArg == 'item'):
-        return {'Not Available' : -1}
+        return "{'Not Available' : -1}"
     else:
-        return {'Command Not found' : 1}
+        return "{'Command Not found' : 1}"
 
 if __name__ == "__main__":
    string = main(sys.argv[1:])

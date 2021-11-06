@@ -1,5 +1,7 @@
 <?php
-require_once(rabbitMQClient.php);
+require_once('rabbitMQClient.php');
+require_once('path.inc');
+require_once('rabbitMQLib.inc');
 
 if(isset($_POST["login"])) {
 	$username = null;
@@ -22,45 +24,29 @@ if(isset($_POST["login"])) {
 	if($respone == 1) {
 		$_SESSION["username"] = $username;
 		$_SESSION["login"] = true;
+		echo "logged in";
     }
-    else{
-    	session_destroy();
+	else{
+		echo "this did not work";
+    		session_destroy();
     }
-    echo $response;
+    echo json_encode($response);
     return $respone;
 }
 
 if (isset($_POST["register"])) {
-    $email = null;
-    $password = null;
-    $confirm = null;
-    $username = null;
-    if (isset($_POST["email"])) {
-        $email = $_POST["email"];
-    }
-    if (isset($_POST["password"])) {
-        $password = $_POST["password"];
-    }
-    if (isset($_POST["password2"])) {
-        $confirm = $_POST["password2"];
-    }
-    if (isset($_POST["username"])) {
-        $username = $_POST["username"];
-    }
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $confirm = $_POST["password2"];
+    $username = $_POST["username"];
     $isValid = true;
-    //check if passwords match on the server side
-    if ($password == $confirm) {
-        //not necessary to show
-        //echo "Passwords match <br>";
-    }
-    else {
+    if ($password != $confirm) {
         echo("Passwords don't match");
         $isValid = false;
     }
-    if (!isset($email) || !isset($password) || !isset($confirm)) {
+    if (!isset($email) || !isset($password) || !isset($confirm) || !isset($username)) {
         $isValid = false;
     }
-    //TODO other validation as desired, remember this is the last line of defense
     if($_SESSION == null){
     	session_start();
     }
@@ -73,11 +59,13 @@ if (isset($_POST["register"])) {
     if($respone == 1) {
     	$_SESSION["username"] = $username;
 	$_SESSION["register"] = true;
+	echo "registered";
     }
     else{
+	echo "this did not work";
     	session_destroy();
     }
-    echo $response;
+    echo json_encode($response);
     return $respone;
     }
 ?>

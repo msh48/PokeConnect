@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PokecConnect</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>PokeConnect</h1>
+  <p>Where you go to connect and plan your matches!</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Forums</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Team Builder</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<h1>PokeConnect Team Builder</h1>
+</header>
+<div class="content-box">
+<form id="tb-form">
+
+<h3>Team Input</h3>
+<ul id="tb-team-input" class="tb-team-input">
+<li class="tb-pkmn-input" data-slot="1">
+<div class="tb-pkmn-label"><span>Pokémon 1</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon1" tabindex="1"> <div class="tb-pkmn-options">
+
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+<!-- POKEMON 1 MOVE SLOTS
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="1" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="1" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="1" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="1" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+<li class="tb-pkmn-input" data-slot="2">
+<div class="tb-pkmn-label"><span>Pokémon 2</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon2" tabindex="2"> <div class="tb-pkmn-options">
+
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+<!--POKEMON 2 MOVES
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="2" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="2" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="2" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="2" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+<li class="tb-pkmn-input" data-slot="3">
+<div class="tb-pkmn-label"><span>Pokémon 3</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon3" tabindex="3"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+<!--POKEMON 3 MOVES
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="3" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="3" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="3" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="3" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+<li class="tb-pkmn-input" data-slot="4">
+<div class="tb-pkmn-label"><span>Pokémon 4</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon4" tabindex="4"> <div class="tb-pkmn-options">
+
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+ <option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+<!--POKEMON 4 MOVES
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="4" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="4" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="4" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="4" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+<li class="tb-pkmn-input" data-slot="5">
+<div class="tb-pkmn-label"><span>Pokémon 5</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon5" tabindex="5"> <div class="tb-pkmn-options">
+
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+ </div>
+ <!--POKEMON 5 MOVES
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="5" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="5" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="5" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="5" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+<li class="tb-pkmn-input" data-slot="6">
+<div class="tb-pkmn-label"><span>Pokémon 6</span>:<div class="no-gen-8-text"></div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Input Pokémon" list="pokemon-names" name="search_Pokemon6" tabindex="6"> <div class="tb-pkmn-options">
+
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+<!--POKEMON 6 MOVES
+<div class="tb-pkmn-moves">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="1" name="search_Move1" tabindex="6" placeholder="Move #1" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="2" name="search_Move2" tabindex="6" placeholder="Move #2" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="3" name="search_Move3" tabindex="6" placeholder="Move #3" list="move-names">
+<input type="input" class="tb-pkmn-move-input" data-move-slot="4" name="search_Move4" tabindex="6" placeholder="Move #4" list="move-names">
+</div>
+</li>
+-->
+</ul>
+
+
+<!-- ENEMY TEAM????
+<div class="tb-enemy-team">
+<h3>ENEMY Team Input (Optional)</h3>
+<div class="tb-options-explanation">Since you would like to check your Pokémon's move coverage against different types, you can also OPTIONALLY choose up to six ENEMY Pokémon to check your team's move's coverage against. This will factor in their weaknesses and resistances for both of their types if they have two and may help you more than just seeing the table of types. It's totally optional, though; you can leave any or all of these blank.</div>
+<ul id="tb-enemy-team-input" class="tb-team-input tb-enemy-team-input">
+<li class="tb-pkmn-input" data-slot="1">
+<div class="tb-pkmn-label"><span>Pokémon 1</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon1" tabindex="7"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+<li class="tb-pkmn-input" data-slot="2">
+<div class="tb-pkmn-label"><span>Pokémon 2</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon2" tabindex="8"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+<li class="tb-pkmn-input" data-slot="3">
+<div class="tb-pkmn-label"><span>Pokémon 3</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon3" tabindex="9"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+<li class="tb-pkmn-input" data-slot="4">
+<div class="tb-pkmn-label"><span>Pokémon 4</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon4" tabindex="10"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+<li class="tb-pkmn-input" data-slot="5">
+<div class="tb-pkmn-label"><span>Pokémon 5</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon5" tabindex="11"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+<li class="tb-pkmn-input" data-slot="6">
+<div class="tb-pkmn-label"><span>Pokémon 6</span>:<div class="no-gen-8-text">* not in SwSh</div></div> <input type="text" class="tb-pkmn-name" value="" placeholder="Enemy Pokémon" list="pokemon-names" name="search_EnemyPokemon6" tabindex="12"> <div class="tb-pkmn-options">
+<select class="tb-pkmn-form">
+<option value="" selected disabled>Standard Form</option>
+</select>
+<select class="tb-pkmn-ability">
+<option value="" selected disabled>(No Ability)</option>
+</select>
+<select class="tb-pkmn-item">
+<option value="" selected disabled>(No Held Item)</option>
+</select>
+</div>
+<div class="tb-pkmn-custom-types">
+<div class="tb-custom-types-label">Custom Type</div>
+-->
+
+<select class="tb-pkmn-custom-type" data-slot="1">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+<select class="tb-pkmn-custom-type" data-slot="2">
+<option value="" selected>---</option>
+<option value="normal">Normal</option>
+<option value="fire">Fire</option>
+<option value="water">Water</option>
+<option value="electric">Electric</option>
+<option value="grass">Grass</option>
+<option value="ice">Ice</option>
+<option value="fighting">Fighting</option>
+<option value="poison">Poison</option>
+<option value="ground">Ground</option>
+<option value="flying">Flying</option>
+<option value="psychic">Psychic</option>
+<option value="bug">Bug</option>
+<option value="rock">Rock</option>
+<option value="ghost">Ghost</option>
+<option value="dragon">Dragon</option>
+<option value="dark">Dark</option>
+<option value="steel">Steel</option>
+<option value="fairy">Fairy</option>
+</select>
+</div>
+</li>
+</ul>
+</div>
+
+
+<!-- OPTION MENU???
+<h3 data-t-slug="options">Options</h3>
+<div class="tb-options">
+<div class="tb-options-row">
+<div class="tb-options-label">Generation</div>
+<div class="tb-options-value">
+<select id="tb-options-generation">
+<option value="1">Gen. 1</option>
+<option value="2">Gen. 2</option>
+<option value="3">Gen. 3</option>
+<option value="4">Gen. 4</option>
+<option value="5">Gen. 5</option>
+<option value="6">Gen. 6</option>
+<option value="7">Gen. 7</option>
+<option value="8" selected>Gen. 8</option>
+</select>
+</div>
+<div class="tb-options-explanation">Which generation should be used for the Team Builder. In Gen. 2–5, Fairy-type is omitted; in Gen. 1, Dark- and Steel-types are omitted, and the weaknesses/resistances are slightly different. This also affects abilities and available Pokémon.</div>
+</div>
+<div class="tb-options-row">
+<div class="tb-options-label"><label for="numberless_amount">Use symbols instead of fractions?</label></div>
+<div class="tb-options-value"><input type="checkbox" id="numberless_amount"></div>
+<div class="tb-options-explanation">If checked, the Team Builder will show symbols such as ◯, △, and × instead of fractions (½) or multipliers (2×).</div>
+</div>
+<div class="tb-options-row">
+<div class="tb-options-label"><label for="type-override">Allow type overrides?</label></div>
+<div class="tb-options-value"><input type="checkbox" id="type-override"></div>
+<div class="tb-options-explanation">If checked, enables you to set custom types for Pokémon. Just check this, type in "Bidoof" or something and set whatever type(s) you'd like to test.</div>
+</div>
+<div class="tb-options-row">
+<div class="tb-options-label"><label for="check-coverage">Enable "Advanced Mode"?</label></div>
+<div class="tb-options-value"><input type="checkbox" id="check-coverage"></div>
+<div class="tb-options-explanation">If checked, enables inputting up to 4 moves per Pokémon and up to six enemy Pokémon to check your Pokémon team's move coverage against (shown below main table). This will add a lot more scrolling to the page but is great for power-users!</div>
+</div>
+<div class="tb-options-row">
+<div class="tb-options-label"><label for="check-coverage">Clear All Inputs</label></div>
+<div class="tb-options-value"><button type="button" id="tb-clear-all">Clear All</button></div>
+<div class="tb-options-explanation">By pressing the <strong>Clear All</strong> button, all inputs on the page will be reset to their default. This is a good way to start from scratch without having to reload the page. A confirmation will pop up making sure you mean to do this, just in case.</div>
+</div>
+</div>
+</form>
+</div>
+-->
+
+
+<div class="content-box team-builder-container">
+<div class="team-builder-container-header">Defensive Coverage</div>
+<table id="team-builder-table" class="team-builder-table">
+<thead>
+<tr class="rowH stickproof">
+<th class="tb-type-header"></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th class="tb-weak-header"></th>
+<th class="tb-resist-header"></th>
+</tr>
+<tr class="rowH">
+<th scope="col" class="rowH tb-type-header">Move<br /><i class="material-icons">arrow_downward</i></th>
+<th data-slot="1" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="2" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="3" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="4" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="5" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="6" scope="col" class="rowH tb-pokemon"></th>
+<th scope="col" class="rowH tb-weak-header">Total Weak</th>
+<th scope="col" class="rowH tb-resist-header">Total Resist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row tb-row tb-row-normal" data-tb-type="normal">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="NRM" data-short-type="Normal" data-long-type="Normal">Normal</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-fire" data-tb-type="fire">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FIR" data-short-type="Fire" data-long-type="Fire">Fire</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-water" data-tb-type="water">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="WTR" data-short-type="Water" data-long-type="Water">Water</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-electric" data-tb-type="electric">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="ELC" data-short-type="Electric" data-long-type="Electric">Electric</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-grass" data-tb-type="grass">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GRS" data-short-type="Grass" data-long-type="Grass">Grass</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-ice" data-tb-type="ice">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="ICE" data-short-type="Ice" data-long-type="Ice">Ice</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-fighting" data-tb-type="fighting">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FTG" data-short-type="Fighting" data-long-type="Fighting">Fighting</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-poison" data-tb-type="poison">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="PSN" data-short-type="Poison" data-long-type="Poison">Poison</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-ground" data-tb-type="ground">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GRD" data-short-type="Ground" data-long-type="Ground">Ground</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-flying" data-tb-type="flying">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FLY" data-short-type="Flying" data-long-type="Flying">Flying</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-psychic" data-tb-type="psychic">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="PSY" data-short-type="Psychic" data-long-type="Psychic">Psychic</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-bug" data-tb-type="bug">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="BUG" data-short-type="Bug" data-long-type="Bug">Bug</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-rock" data-tb-type="rock">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="RCK" data-short-type="Rock" data-long-type="Rock">Rock</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-ghost" data-tb-type="ghost">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GHO" data-short-type="Ghost" data-long-type="Ghost">Ghost</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-dragon" data-tb-type="dragon">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="DRG" data-short-type="Dragon" data-long-type="Dragon">Dragon</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-dark" data-tb-type="dark">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="DRK" data-short-type="Dark" data-long-type="Dark">Dark</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-steel" data-tb-type="steel">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="STL" data-short-type="Steel" data-long-type="Steel">Steel</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+<tr class="row tb-row tb-row-fairy" data-tb-type="fairy">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FAI" data-short-type="Fairy" data-long-type="Fairy">Fairy</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-weak"></td>
+<td class="tb-total-resist"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="content-box team-builder-container team-builder-coverage-container">
+<div class="team-builder-container-header">Offensive Coverage</div>
+<table id="team-builder-coverage-table" class="team-builder-table team-builder-coverage-table">
+<thead>
+<tr class="rowH stickproof">
+<th class="tb-type-header"></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th class="tb-not-very-effective-header"></th>
+<th class="tb-super-effective-header"></th>
+</tr>
+<tr class="rowH">
+<th scope="col" class="rowH tb-type-header">Enemy<br /><i class="material-icons">arrow_downward</i></th>
+<th data-slot="1" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="2" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="3" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="4" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="5" scope="col" class="rowH tb-pokemon"></th>
+<th data-slot="6" scope="col" class="rowH tb-pokemon"></th>
+<th scope="col" class="rowH tb-not-very-effective-header">Not Very Effective</th>
+<th scope="col" class="rowH tb-super-effective-header">Super Effective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row tb-row tb-coverage-row tb-row-normal" data-tb-type="normal">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="NRM" data-short-type="Normal" data-long-type="Normal">Normal</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-fire" data-tb-type="fire">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FIR" data-short-type="Fire" data-long-type="Fire">Fire</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-water" data-tb-type="water">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="WTR" data-short-type="Water" data-long-type="Water">Water</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-electric" data-tb-type="electric">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="ELC" data-short-type="Electric" data-long-type="Electric">Electric</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-grass" data-tb-type="grass">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GRS" data-short-type="Grass" data-long-type="Grass">Grass</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-ice" data-tb-type="ice">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="ICE" data-short-type="Ice" data-long-type="Ice">Ice</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-fighting" data-tb-type="fighting">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FTG" data-short-type="Fighting" data-long-type="Fighting">Fighting</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-poison" data-tb-type="poison">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="PSN" data-short-type="Poison" data-long-type="Poison">Poison</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-ground" data-tb-type="ground">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GRD" data-short-type="Ground" data-long-type="Ground">Ground</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-flying" data-tb-type="flying">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FLY" data-short-type="Flying" data-long-type="Flying">Flying</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-psychic" data-tb-type="psychic">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="PSY" data-short-type="Psychic" data-long-type="Psychic">Psychic</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-bug" data-tb-type="bug">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="BUG" data-short-type="Bug" data-long-type="Bug">Bug</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-rock" data-tb-type="rock">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="RCK" data-short-type="Rock" data-long-type="Rock">Rock</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-ghost" data-tb-type="ghost">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="GHO" data-short-type="Ghost" data-long-type="Ghost">Ghost</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-dragon" data-tb-type="dragon">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="DRG" data-short-type="Dragon" data-long-type="Dragon">Dragon</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-dark" data-tb-type="dark">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="DRK" data-short-type="Dark" data-long-type="Dark">Dark</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-steel" data-tb-type="steel">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="STL" data-short-type="Steel" data-long-type="Steel">Steel</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+<tr class="row tb-row tb-coverage-row tb-row-fairy" data-tb-type="fairy">
+<th scope="row" class="rowH"><span class="tb-type-icon" data-abbr-type="FAI" data-short-type="Fairy" data-long-type="Fairy">Fairy</span></th>
+<td data-slot="1"></td>
+<td data-slot="2"></td>
+<td data-slot="3"></td>
+<td data-slot="4"></td>
+<td data-slot="5"></td>
+<td data-slot="6"></td>
+<td class="tb-total-not-very-effective"></td>
+<td class="tb-total-super-effective"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="content-box">
+<form id="tb-save-load-form">
+<h3>Save Team</h3>
+<div class="tb-options" id="tb-save-load-share">
+<div id="tb-load-team-row" class="tb-options-row">
+<!-- LOADING A SAVED TEAM
+<div class="tb-options-label">Load a Saved Team</div>
+<div class="tb-options-value">
+<select id="tb-saved-teams">
+<option value="" selected>No saved teams!</option>
+</select>
+<button id="tb-load-team" type="button">Load</button>
+<button id="tb-delete-team" type="button">Delete</button>
+</div>
+<div class="tb-options-explanation">If you have any teams saved to your web browser, you can load them from the dropdown list here. <em>(Loading a saved team will overwrite whatever you have inputted above.)</em></div>
+</div>
+-->
+<div id="tb-save-team-row" class="tb-options-row">
+<div class="tb-options-label">Save Your Current Team</div>
+<div class="tb-options-value">
+<button id="tb-save-team" type="button">Save Team</button>
+</div>
+
+
+<!-- OTHER TEAM STUFF
+<div class="tb-options-explanation">You can save your team for later by clicking <strong>Save Team</strong>. This will save it to your browser to load later on. You can also give it a nickname to describe the team.</div>
+</div>
+<div id="tb-team-code-row" class="tb-options-row">
+<div class="tb-options-label">Team Code</div>
+<div class="tb-options-value">
+<input type="text" id="tb-team-code" placeholder="Team Code">
+<button id="tb-load-code" type="button">Load</button>
+<button id="tb-copy-code" type="button">Copy</button>
+</div>
+<div class="tb-options-explanation">The <strong>Team Code</strong> can be used to share teams. <strong>Copy</strong> this code to save it for later, or <strong>paste</strong> a Team Code you have in this box to load it <em>(overwriting whatever you have inputted above)</em>.</div>
+</div>
+<div id="tb-share-row" class="tb-options-row">
+<div class="tb-options-label">URL for Sharing</div>
+<div class="tb-options-value">
+<input type="text" id="tb-share-url" readonly> <button id="tb-copy-url" type="button">Copy</button>
+</div>
+<div class="tb-options-explanation">Want to share your current team with friends, family, or even your future self? <strong>Copy</strong> the URL generated above and you can share it with friends by <strong>pasting</strong> it wherever you'd like <em>(CTRL + V or Cmd + V, usually)</em>.</div>
+</div>
+</div></form>
+</div>
+-->
+<datalist id="pokemon-names">
+</datalist>
+<datalist id="move-names">
+</datalist>
+<!--
+<div id="tb-modal" class="modal tb-modal" data-slot="" data-marriland-modal="1" aria-hidden="true">
+<div class="modal-outer" tabindex="-1" data-micromodal-close>
+<div class="modal-inner" role="dialog" aria-modal="true">
+<div class="tb-modal-header">
+<div class="tb-modal-close" id="tb-modal-close" data-micromodal-close><i class="material-icons">close</i></div>
+<div class="tb-modal-header-pokemon"> <div class="tb-modal-pokemon-slot" data-slot="1"><i class="material-icons">add_circle_outline</i></div> <div class="tb-modal-pokemon-slot" data-slot="2"><i class="material-icons">add_circle_outline</i></div> <div class="tb-modal-pokemon-slot" data-slot="3"><i class="material-icons">add_circle_outline</i></div> <div class="tb-modal-pokemon-slot" data-slot="4"><i class="material-icons">add_circle_outline</i></div> <div class="tb-modal-pokemon-slot" data-slot="5"><i class="material-icons">add_circle_outline</i></div> <div class="tb-modal-pokemon-slot" data-slot="6"><i class="material-icons">add_circle_outline</i></div> </div>
+</div>
+<div class="tb-modal-body">
+<div class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="modal-pokemon-list-header">Add Pokémon from List</span></div>
+<div class="tb-modal-pokemon-list">
+</div>
+<div class="tb-modal-option-explanation" data-t-slug="modal-pokemon-list-explanation">You can scroll through the list of Pokémon above and click or tap any of them to quickly add it to your team. Otherwise you can search for specific Pokémon below.</div>
+</div>
+<div id="tb-modal-pokemon-row" class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="pokemon">Pokémon</span>:</div>
+<div class="tb-modal-option-value"><input type="text" id="tb-modal-pokemon" placeholder="Input Pokémon" data-t-slug-placeholder="input-pokemon" list="pokemon-names" /></div>
+<div class="tb-modal-option-explanation" data-t-slug="modal-pokemon-explanation">Input the Pokémon you're looking for here. Suggestions will be shown as you type. You can search for its form or search for the base Pokémon and choose its form afterwards.</div>
+</div>
+<div id="tb-modal-form-row" class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="form">Form</span>:</div>
+<div class="tb-modal-option-value">
+<select id="tb-modal-form">
+</select>
+</div>
+<div class="tb-modal-option-explanation" data-t-slug="modal-form-explanation">Choose which form you'd like to calculate for the Pokémon. Keep in mind that some forms, such as cosmetic-only forms, are not selectable as they do not affect the Pokémon's type.</div>
+</div>
+<div id="tb-modal-ability-row" class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="ability">Ability</span>:</div>
+<div class="tb-modal-option-value">
+<select id="tb-modal-ability">
+</select>
+</div>
+<div class="tb-modal-option-explanation" data-t-slug="modal-ability-explanation">Choose an ability for the Pokémon. Only abilities that affect weakness/resistance/immunities or types are shown, as any others are irrelevant.</div>
+</div>
+<div id="tb-modal-held-item-row" class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="held-item">Held Item</span>:</div>
+<div class="tb-modal-option-value">
+<select id="tb-modal-item">
+</select>
+</div>
+<div class="tb-modal-option-explanation" data-t-slug="modal-item-explanation">Choose a held item for the Pokémon. Only items that affect the Pokémon's weakness/resistance/immunities or types are shown, as any others are irrelevant.</div>
+</div>
+<div class="tb-modal-option-row">
+<div class="tb-modal-option-label"><span data-t-slug="override-type">Override Type</span>:</div>
+<div class="tb-modal-option-value"> <select id="tb-modal-type-1">
+<option value="false" selected>---</option>
+<option value="normal" data-t-slug="type-normal">Normal</option>
+<option value="fire" data-t-slug="type-fire">Fire</option>
+<option value="water" data-t-slug="type-water">Water</option>
+<option value="electric" data-t-slug="type-grass">Grass</option>
+<option value="ice" data-t-slug="type-ice">Ice</option>
+<option value="fighting" data-t-slug="type-fighting">Fighting</option>
+<option value="poison" data-t-slug="type-poison">Poison</option>
+<option value="ground" data-t-slug="type-ground">Ground</option>
+<option value="flying" data-t-slug="type-flying">Flying</option>
+<option value="psychic" data-t-slug="type-psychic">Psychic</option>
+<option value="bug" data-t-slug="type-bug">Bug</option>
+<option value="rock" data-t-slug="type-rock">Rock</option>
+<option value="ghost" data-t-slug="type-ghost">Ghost</option>
+<option value="dragon" data-t-slug="type-dragon">Dragon</option>
+<option value="dark" data-t-slug="type-dark">Dark</option>
+<option value="steel" data-t-slug="type-steel">Steel</option>
+<option value="fairy" data-t-slug="type-fairy">Fairy</option>
+</select> <select id="tb-modal-type-2">
+<option value="false" selected>---</option>
+<option value="normal" data-t-slug="type-normal">Normal</option>
+<option value="fire" data-t-slug="type-fire">Fire</option>
+<option value="water" data-t-slug="type-water">Water</option>
+<option value="electric" data-t-slug="type-grass">Grass</option>
+<option value="ice" data-t-slug="type-ice">Ice</option>
+<option value="fighting" data-t-slug="type-fighting">Fighting</option>
+<option value="poison" data-t-slug="type-poison">Poison</option>
+<option value="ground" data-t-slug="type-ground">Ground</option>
+<option value="flying" data-t-slug="type-flying">Flying</option>
+<option value="psychic" data-t-slug="type-psychic">Psychic</option>
+<option value="bug" data-t-slug="type-bug">Bug</option>
+<option value="rock" data-t-slug="type-rock">Rock</option>
+<option value="ghost" data-t-slug="type-ghost">Ghost</option>
+<option value="dragon" data-t-slug="type-dragon">Dragon</option>
+<option value="dark" data-t-slug="type-dark">Dark</option>
+<option value="steel" data-t-slug="type-steel">Steel</option>
+<option value="fairy" data-t-slug="type-fairy">Fairy</option>
+</select> </div>
+</div>
+</div>
+-->
+
+
+<!--
+<div class="tb-modal-footer">
+<button id="tb-modal-button-close" class="modal-button modal-close">Save &amp; Close</button>
+<button id="tb-modal-button-next-pokemon" class="modal-button modal-button-next">Next Pokémon</button>
+</div>
+</div>
+</div>
+</div> </main>
+
+</div>
+-->
+
+<!--
+<script defer type='text/javascript' src='https://marriland.com/wp-content/plugins/marriland-core/vendor/datatables/datatables.min.js' id='datatables-js'></script>
+<script defer type='text/javascript' src='https://unpkg.com/@tarekraafat/autocomplete.js@8.2.1/dist/js/autoComplete.min.js' id='autocompletejs-js'></script>
+<script defer type='text/javascript' src='https://marriland.com/wp-content/plugins/marriland-core/vendor/featherlight/featherlight.min.js' id='featherlight-js'></script>
+<script defer type='text/javascript' src='https://marriland.com/wp-content/plugins/marriland-core/vendor/featherlight/featherlight.gallery.min.js' id='featherlight-gallery-js'></script>
+<script defer type='text/javascript' src='https://marriland.com/wp-content/plugins/marriland-core/js/featherlight-wp.js' id='marriland-featherlight-wp-js'></script>
+<script defer type='text/javascript' src='https://marriland.com/wp-content/themes/marriland/js/mobile-menu.js' id='mobile-menu-js-js'></script>
+<script defer type='text/javascript' src='https://marriland.com/wp-content/themes/marriland/js/vendor/share42/share42.js' id='share42-js'></script>
+<script type='text/javascript' src='https://unpkg.com/popper.js@1' id='popper-js'></script>
+<script type='text/javascript' src='https://unpkg.com/tippy.js@5' id='tippy-js'></script>
+<script type='text/javascript' id='marriland-team-builder-js-extra'>
+/* <![CDATA[ */
+var wp = {"ajax_url":"https:\/\/marriland.com\/wp-admin\/admin-ajax.php","plugin_url":"https:\/\/marriland.com\/wp-content\/plugins\/marriland-team-builder","nonce":"034f471165","current_generation":"8","generation":"8","ui_language":"en","ingame_language":"en","i18n_errors":{"invalid_name":"Couldn't find a Pok\u00e9mon by that name!","invalid_move":"Couldn't find the move %s! (Is it spelled right?)","fatal_error":"ERROR: There was a major error while processing the Team Builder! Please make sure all of your inputs are correct and try again. If this problem contains, please contact Marriland about it.","invalid_decoding":"ERROR: There was a problem with decoding the Team Code. Make sure that the Team Code you input is a valid one.","loading_from_team_code":"ERROR: There was a problem loading from the Team Code. Something isn't right with the input. Please try again or, if that doesn't work, input the Pok\u00e9mon again (sorry)."},"i18n_client":{"save_team_nickname_prompt":"Please give a nickname or quick description of your team so you can recognize it while loading it later on:","save_team_nickname_blank":"Oops, you need to input a name! Please enter a nickname for this team or hit Cancel.","save_team_replace_nickname":"There's already a saved team with that nickname! Do you want to REPLACE the saved team with the new team?","no_saved_teams":"No saved teams!","delete_team_confirmation":"Are you sure you want to delete your team titled \"%s\"?","clear_all_confirmation":"Are you sure you want to clear all of the inputs on the page and reset it back to its initial state? (Your saved Team Codes will still be saved, don't worry!)","copied_to_clipboard":"Successfully copied to your clipboard!","problem_copying_to_clipboard":"problem_copying_to_clipboard"},"linked_teamcode":null};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://marriland.com/wp-content/plugins/marriland-team-builder/js/team-builder.js' id='marriland-team-builder-js'></script>
+<script type='text/javascript' src='https://marriland.com/wp-includes/js/wp-embed.min.js?ver=5.8.1' id='wp-embed-js'></script>
+
+</div>
+</div>
+-->
+
+    </html>

@@ -4,8 +4,8 @@
 //in the if($response==1) program the success case in for the html
 //the other logregister file has an example
 require_once('rabbitMQClient.php');
-$password = "test";
-$username = "test";
+$password = $POST_['password'];
+$username = $POST_['username'];
 $request = array();
 $request['type'] = "register";
 $request['username'] = $username;
@@ -15,11 +15,7 @@ if($response == 1) {
 	echo "registered";
 }
 else{
-	$error = array();
-	$error['type'] = "db";
-	$error['error_string'] = "Username is taken";
-	$response = createClientForRmq($error);
-	
+	echo "this did not work"	
 }
 echo $response;
 return $response;

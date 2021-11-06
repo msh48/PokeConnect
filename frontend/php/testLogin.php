@@ -1,7 +1,7 @@
 <?php
 require_once("rabbitMQClient.php");
-$username = "test";
-$password = "test";
+$username = $REQUEST_['username'];
+$password = $REQUEST_['password'];
 $request = array();
 $request['type'] = "login";
 $request['username'] = $username;

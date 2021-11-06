@@ -13,7 +13,7 @@ function createClientForDmz($request){
 	$response = $client->send_request($request);
 	return $response;
 }
-function createClientForRmq($request);{
+function createClientForRmq($request) {
 	$client = new rabbitMQClient("../rabbitmq_example/rabbitMQ_rmq.ini", "testServer");
 	if(isset($argv[1])){
 		$msg = $argv[1];

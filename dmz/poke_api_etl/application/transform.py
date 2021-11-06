@@ -11,6 +11,9 @@ class TransformPokemonData():
 
     def make_pokemon_body_with_stats(self, pokemon):
         """Create a JSON body for pokemon stats"""
+        er = 'error'
+        if er in pokemon.keys():
+            return pokemon
         pokeDictStats = {}
         pokeType = pokemon['types']
         pokeStats = pokemon['stats']

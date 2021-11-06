@@ -4,7 +4,7 @@ from application.pokemonfetch import FetchPokemonData
 from application.transform import TransformPokemonData
 
 def main(argv):
-    strArg = str(argv[1])
+    strArg = str(argv[0])
     if (strArg == 'All'):
         # Initialize 
         pokeDic = {}
@@ -19,7 +19,7 @@ def main(argv):
             pokemonGetStats = fetchPokemonData.get_pokemon_stats(name)
             pokemonDicStats = transformPokemonData.make_pokemon_body_with_stats(pokemonGetStats)
             pokeDic[name] = pokemonDicStats
-        pokeJson = json.dumps(pokeDic)        
+        pokeJson = json.dumps(pokeDic)       
         return pokeJson
         
     elif (strArg == 'move'):

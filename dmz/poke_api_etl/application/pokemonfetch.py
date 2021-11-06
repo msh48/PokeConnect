@@ -1,4 +1,5 @@
 import requests
+import json
 
 class FetchPokemonData:
 
@@ -6,7 +7,7 @@ class FetchPokemonData:
         self.pokemon_generation_endpoint = 'https://pokeapi.co/api/v2/generation'
         self.pokemon_move_endpoint = 'https://pokeapi.co/api/v2/move'
         self.pokemon_item_endpoint = 'https://pokeapi.co/api/v2/item'
-        self.pokemon_endpoint = 'https://pokeapi.co/api/v2/pokemon/'
+        self.pokemon_endpoint = 'https://pokeapi.co/api/v2/pokemon'
 
     def get_total_number_of_pokemon_generation(self, id):
         """Gets the total number of pokemon for generation.
@@ -17,9 +18,12 @@ class FetchPokemonData:
         return req.json()
 
     def get_pokemon_stats(self, pokemon_name):
-        new_pokemon_endpoint = "{}/{}".format(self.pokemon_endpoint,pokemon_name)
+        new_pokemon_endpoint = "{}/{}".format(self.pokemon_endpoint, pokemon_name)
         req = requests.get( new_pokemon_endpoint,
                            headers={"Accept": "application/json"})
+        if req.status_code == 404:
+            errorDic = {'error': 'Did Not Find Stats'}
+            return errorDic
         return req.json()
 
     def get_total_number_of_pokemon_items(self, items_category_id):

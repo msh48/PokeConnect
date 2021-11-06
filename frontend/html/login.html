@@ -1,4 +1,59 @@
 <!DOCTYPE html>
+
+<script>
+
+function HandleLoginResponse(response)
+{
+
+	var resp = JSON.parse(response);
+	var returnCode = parseInt(resp.returnCode);
+	if (returnCode == 0){
+		document.getElementById("textResponse").innerHTML = "response: "+resp.message+"<p>";
+	}
+	else{
+		document.getElementById("textResponse").innerHTML = resp.returnCode;	
+	}
+}
+
+function SendLoginRequest(username,password)
+{
+	document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
+	var request = new XMLHttpRequest();
+
+	request.open("POST","../php/loginReg.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+	request.onreadystatechange= function ()
+	{
+
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}		
+	}
+	request.send("type=login&username="+username+"&password="+password);
+}
+
+function SendRegisterRequest(username, email, password, password2)
+{
+        document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
+        var request = new XMLHttpRequest();
+
+        request.open("POST","../php/loginReg.php",true);
+        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+        request.onreadystatechange= function ()
+        {
+
+                if ((this.readyState == 4)&&(this.status == 200))
+                {
+                        HandleLoginResponse(this.responseText);
+                }
+        }
+        request.send("type=register&username="+username+"&email="+email+"&password="+password+"&password2="+password2);
+}
+
+</script>
 <html lang="en">
 
 	<title>Sign up For PokeConnect</title>
@@ -38,41 +93,20 @@
 				<div class="col-md-5">
 					<form role="form" method="post" action="boothomepage.html"
 						</fieldset> 
-	<?php
-
-require_once('rabbitMQClient.php');
-if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['Register']))
-{
-    $password = $_POST['password'];;
-$username = $_POST['username'];;
-$request = array();
-$request['type'] = "register";
-$request['username'] = $username;
-$request['password'] = $password;
-$response = createClientForDb($request);
-if($response == 1) {
-	echo "registered";
-}
-else{
-  	echo "didn't work";
-}
-echo $response;
-return $response;
-}
-?>							
+							
 							<p class="text-uppercase pull-center"> SIGN UP.</p>	
  							<div class="form-group">
-								<input type="text" name="username" id="username" class="form-control input-lg" placeholder="username">
+								<input type="text" name="username" id="registerUsername" class="form-control input-lg" placeholder="username">
 							</div>
 
 							<div class="form-group">
 								<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
 							</div>
 							<div class="form-group">
-								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+								<input type="password" name="password" id="registerPassword" class="form-control input-lg" placeholder="Password">
 							</div>
 								<div class="form-group">
-								<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2">
+								<input type="password" name="password2" id="registerPassword2" class="form-control input-lg" placeholder="Password2">
 							</div>
 							<div class="form-check">
 								<label class="form-check-label">
@@ -81,7 +115,7 @@ return $response;
 								</label>
 							  </div>
  							<div>
- 									  <input type="submit" name= "Register"   value="GO" />
+ 									  <button type="button" class="btn btn-md" onclick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementbyId("registerPassword").value, document.getElementbyId("registerPassword2").value)' id = "registerButtonId">Register</button>
  							</div>
 						</fieldset>
 					</form>
@@ -103,9 +137,11 @@ return $response;
 								<input type="password" name="password" id="loginPassword" class="form-control input-lg" placeholder="Password">
 							</div>
 							<div>
-								<button type="button" class="btn btn-md" onclick="validateLogin()" id = "loginButtonId">Login</button>
+								<button type="button" class="btn btn-md" onclick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
 							</div>
-								 
+								 <div id="textResponse">
+	awaiting response
+</div>
  						</fieldset>
 				</form>	
 				</div>

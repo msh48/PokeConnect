@@ -40,3 +40,9 @@ Stack trace:
 [04-Nov-2021 15:42:29 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
 [04-Nov-2021 15:44:04 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
 [04-Nov-2021 15:53:14 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[04-Nov-2021 15:57:30 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(37): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[06-Nov-2021 15:04:05 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26

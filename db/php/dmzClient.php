@@ -32,8 +32,11 @@ ini_set('error_log', dirname(__FILE__).'/../logging/log.txt'); */
 }*/
 $request = array();
 $request['type'] = "Pokemon";
-$request['Pokemon'] = "All"
-$response = $client->send_request($request);
+$request['Pokemon'] = "All";
+//$response = $client->send_request($request);
 
 $pokemon = createClientForDmz($request);
-echo $pokemon.PHP_EOL;
+//$manage = json_decode($pokemon, true);
+//$h = $manage["grookey"]["types"];
+$typ = gettype($pokemon);
+echo $typ.PHP_EOL;

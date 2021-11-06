@@ -36,6 +36,7 @@ $request['Pokemon'] = "All";
 //$response = $client->send_request($request);
 
 $pokemon = createClientForDmz($request);
-$manage = json_decode($pokemon, true);
-$h = $manage["grookey"]["types"];
-echo $h.PHP_EOL;
+//$manage = json_decode($pokemon, true);
+//$h = $manage["grookey"]["types"];
+$typ = gettype($pokemon);
+echo $typ.PHP_EOL;

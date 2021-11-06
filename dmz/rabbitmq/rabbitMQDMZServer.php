@@ -14,14 +14,16 @@ function requestProcessor($request){
 	switch($request['type']){
 		case "Pokemon":
 			$response_msg = callPy($request['Pokemon']);
+			//echo $response_msg.PHP_EOL;
 			break;
 	}
-	echo var_dump($response_msg);
+	//echo var_dump($response_msg);
+	echo "Got Data".PHP_EOL;
 	return $response_msg;
 }
 
 function callPy($py){
-	$command = escapeshellcmd('../poke_api_etl/app.py ');
+	$command = escapeshellcmd('python ../poke_api_etl/app.py ');
 	$output = shell_exec($command.$py);
 	return $output;
 }

@@ -19,9 +19,8 @@ def main(argv):
             pokemonGetStats = fetchPokemonData.get_pokemon_stats(name)
             pokemonDicStats = transformPokemonData.make_pokemon_body_with_stats(pokemonGetStats)
             pokeDic[name] = pokemonDicStats
-        pokeJson = json.dumps(pokeDic)       
-        return pokeJson
-        
+        pokeJson = json.dumps(pokeDic)     
+        return pokeJson        
     elif (strArg == 'move'):
         return 0
     elif (strArg == 'item'):
@@ -30,4 +29,5 @@ def main(argv):
         return -1
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   string = main(sys.argv[1:])
+   print(string)

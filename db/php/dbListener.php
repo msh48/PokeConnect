@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 require_once('../rabbitmqphp_example/path.inc');
 require_once('../rabbitmqphp_example/get_host_info.inc');
@@ -33,6 +34,7 @@ function requestProcessor($request){
 	echo $response_msg;
 	return $response_msg;
 }
+echo "Start Database Server".PHP_EOL;
 $server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_db.ini', 'testServer');
 $server->process_requests('requestProcessor');
 ?>

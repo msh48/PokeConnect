@@ -21,7 +21,7 @@ if(isset($_POST["login"])) {
    	$request['username'] = $username;
 	$request['password'] = $password;
 	$response = createClientForDb($request);
-	if($respone == 1) {
+	if($response == 1) {
 		$_SESSION["username"] = $username;
 		$_SESSION["login"] = true;
 		echo "logged in";
@@ -31,7 +31,7 @@ if(isset($_POST["login"])) {
     		session_destroy();
     }
     echo json_encode($response);
-    return $respone;
+    return $response;
 }
 
 if (isset($_POST["register"])) {
@@ -66,6 +66,6 @@ if (isset($_POST["register"])) {
     	session_destroy();
     }
     echo json_encode($response);
-    return $respone;
+    return $response;
     }
 ?>

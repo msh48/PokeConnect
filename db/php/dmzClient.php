@@ -40,6 +40,7 @@ $pokemon = createClientForDmz($request);
 //$h = $manage["grookey"]["types"];
 $typ = gettype($pokemon);
 $data = json_decode($pokemon, TRUE);
-$typ2 = gettype($data)
+$typ2 = gettype($data);
 echo $typ.PHP_EOL;
 echo $typ2.PHP_EOL;
+echo $data.PHP_EOL;

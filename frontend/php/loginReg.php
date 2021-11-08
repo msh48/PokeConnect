@@ -41,8 +41,8 @@ if (!isset($_POST)) {
 	echo "No Post";
 	exit(0);
 }
-
-$request = $_POST;
+$request = array();
+$request['type'] = $_POST['type'];
 switch ($request['type']){    
 case "register":
 
@@ -76,6 +76,7 @@ case "register":
     echo json_encode($response);
     //$jsonresp = json_encode($response);
     //return  $jsonresp;
+    exit(0);
     break;
     
 case "login":
@@ -92,9 +93,9 @@ case "login":
             session_start();
     }
     $request = array();
-     $request['type'] = "login";
-       $request['username'] = $username;
-    $request['password'] = $password;
+    $request['type'] = "login";
+    $request['username'] = $_POST['username'];
+    $request['password'] = $_POST['password'];
     $response = createClientForDb($request);
     if($response == 1) {
         $_SESSION["username"] = $username;
@@ -108,6 +109,7 @@ case "login":
     echo json_encode($response);
     //$jsonresp = json_encode($response);
     //return $jsonresp;
+    exit(0);
     break;
 }
 

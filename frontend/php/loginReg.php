@@ -3,20 +3,19 @@ require_once('rabbitMQClient.php');
 require_once('path.inc');
 require_once('rabbitMQLib.inc');
 
-if(isset($_POST["login"])) {
-	$username = null;
-	$password = null;
-	
-	if(isset($_POST["username"])){
-		$username = $_POST['username'];
-	}
-	if(isset($_POST["password"])){
-		$password = $_POST['password'];
-	}
+if(!isset($_POST))
+{
+	echo "No Post";
+	exit(0);
+}
+
+switch ($_POST["type"]) {
+	case "login":
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 	if($_SESSION == null){
-    		session_start();
-    	}
-       	$request = array();
+		session_start();}
+    	$request = array();
  	$request['type'] = "login";
    	$request['username'] = $username;
 	$request['password'] = $password;
@@ -25,16 +24,16 @@ if(isset($_POST["login"])) {
 		$_SESSION["username"] = $username;
 		$_SESSION["login"] = true;
 		echo "logged in";
-    }
+    	}
 	else{
 		echo "this did not work";
     		session_destroy();
-    }
-    echo json_encode($response);
-    return $response;
-}
+    	}
+    	echo json_encode($response);
+    	return $response;
+	break;
 
-if (isset($_POST["register"])) {
+    case "register":
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm = $_POST["password2"];
@@ -67,5 +66,6 @@ if (isset($_POST["register"])) {
     }
     echo json_encode($response);
     return $response;
-    }
+    break;
+}
 ?>

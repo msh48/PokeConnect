@@ -43,30 +43,28 @@ if (!isset($_POST)) {
 }
 
 $request = $_POST;
-switch ($request["type"]){    
+switch ($request['type']){    
 case "register":
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirm = $_POST["password2"];
-    $username = $_POST["username"];
-    $isValid = true;
+
+    /*$isValid = true;
     if ($password != $confirm) {
         echo("Passwords don't match");
         $isValid = false;
     }
     if (!isset($email) || !isset($password) || !isset($confirm) || !isset($username)) {
         $isValid = false;
-    }
+    }*/
     if($_SESSION == null){
         session_start();
     }
     $request = array();
     $request['type'] = "register";
-    $request['username'] = $username;
-    $request['password'] = $password;
-    $request['email'] = $email;
+    $request['username'] = $_POST["username"];
+    $request['email'] = $_POST['email'];
+    $request['password'] = $_POST['password'];
+    $request['password2'] = $_POST["password2"];
     $response = createClientForDb($request);
-    if($respone == 1) {
+    if($response == 1) {
         $_SESSION["username"] = $username;
     $_SESSION["register"] = true;
     echo "registered";
@@ -76,7 +74,8 @@ case "register":
         session_destroy();
     }
     echo json_encode($response);
-    return $response;
+    //$jsonresp = json_encode($response);
+    //return  $jsonresp;
     break;
     
 case "login":
@@ -107,7 +106,8 @@ case "login":
             session_destroy();
     }
     echo json_encode($response);
-    return $response;
+    //$jsonresp = json_encode($response);
+    //return $jsonresp;
     break;
 }
 

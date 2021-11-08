@@ -20,7 +20,7 @@ function SendLoginRequest(username,password)
 	document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
 	var request = new XMLHttpRequest();
 
-	request.open("POST","/PokeConnect/PokeConnect/frontend/php/loginReg.php",true);
+	request.open("POST","../php/loginReg.php",true);
 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
 	//request.open("GET", "../php/loginReg.php?type=login&username=" + username + "&password=" + password, true);
 
@@ -42,7 +42,7 @@ function SendRegisterRequest(username, email, password, password2)
         document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
         var request = new XMLHttpRequest();
 
-        request.open("POST","/PokeConnect/PokeConnect/frontend/php/loginReg.php",true);
+        request.open("POST","../php/loginReg.php",true);
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
         request.onreadystatechange= function ()

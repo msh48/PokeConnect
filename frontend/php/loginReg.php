@@ -37,7 +37,7 @@ require_once('rabbitMQClient.php');
     return $response;
 } */
 
-if (isset($_POST)) {
+if (!isset($_POST)) {
 	echo "No Post";
 	exit(0);
 }

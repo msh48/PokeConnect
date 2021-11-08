@@ -41,6 +41,8 @@ if (!isset($_POST)) {
 	echo "No Post";
 	exit(0);
 }
+
+$request = $_POST;
 switch ($request["type"]){    
 case "register":
     $email = $_POST["email"];

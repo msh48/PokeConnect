@@ -3,24 +3,68 @@
 require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-// Change this for where rabbitmq server lives
-$connection = new AMQPStreamConnection('localhost', 5672, 'test', 'test');
-$channel = $connection->channel();
 
-$channel->exchange_declare('topic_logs', 'topic', false, false, false);
+class LoginRpcClient
+{
+    private $connection;
+    private $channel;
+    private $callback_queue;
+    private $response;
+    private $corr_id;
 
-$routing_key = isset($argv[1]) && !empty($argv[1]) ? $argv[1] : 'anonymous.info';
-$data = implode(' ', array_slice($argv, 2));
-if (empty($data)) {
-    $data = "Hello World!";
+    public function __construct()
+    {
+        $this->connection = new AMQPStreamConnection(
+            'localhost',
+            5672,
+            'test',
+            'test'
+        );
+        $this->channel = $this->connection->channel();
+        list($this->callback_queue, ,) = $this->channel->queue_declare(
+            "",
+            false,
+            false,
+            true,
+            false
+        );
+        $this->channel->basic_consume(
+            $this->callback_queue,
+            '',
+            false,
+            true,
+            false,
+            false,
+            array(
+                $this,
+                'onResponse'
+            )
+        );
+    }
+
+    public function onResponse($rep)
+    {
+        if ($rep->get('correlation_id') == $this->corr_id) {
+            $this->response = $rep->body;
+        }
+    }
+
+    public function call($n)
+    {
+        $this->response = null;
+        $this->corr_id = uniqid();
+
+        $msg = new AMQPMessage(
+            (string) $n,
+            array(
+                'correlation_id' => $this->corr_id,
+                'reply_to' => $this->callback_queue
+            )
+        );
+        $this->channel->basic_publish($msg, '', 'rpc_queue');
+        while (!$this->response) {
+            $this->channel->wait();
+        }
+        return intval($this->response);
+    }
 }
-
-$msg = new AMQPMessage($data);
-
-$channel->basic_publish($msg, 'topic_logs', $routing_key);
-
-echo ' [x] Sent ', $routing_key, ':', $data, "\n";
-
-$channel->close();
-$connection->close();
-

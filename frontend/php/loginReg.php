@@ -89,7 +89,7 @@ case "login":
     if(isset($_GET["password"])){
         $password = $_GET['password'];
     }
-    if($_SESSION == null){
+    if($session_status() === PHP_SESSION_NONE){
             session_start();
     }
     $request = array();

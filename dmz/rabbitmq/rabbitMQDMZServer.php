@@ -4,6 +4,11 @@ require_once('../rabbitmqphp_example/path.inc');
 require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+ini_set('log_errors', 'on');
+ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
+
 function requestProcessor($request){
 	echo "Received request".PHP_EOL;
 	echo $request['type'].PHP_EOL;
@@ -16,9 +21,13 @@ function requestProcessor($request){
 			$response_msg = callPy($request['Pokemon']);
 			//echo $response_msg.PHP_EOL;
 			break;
+		default:
+			echo "error".PHP_EOL;
+			$response_msg = logAndSendErrors();	
+			break;
 	}
 	//echo var_dump($response_msg);
-	echo "Got Data".PHP_EOL;
+	echo $response_msg;
 	return $response_msg;
 }
 

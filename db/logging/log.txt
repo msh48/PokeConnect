@@ -56,3 +56,13 @@ Stack trace:
 #5 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
 #6 {main}
   thrown in /home/bob/Documents/poke_connect/PokeConnect/db/php/dbConnection.php on line 12
+[08-Nov-2021 17:29:11 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[08-Nov-2021 17:30:33 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPConnectionException: Socket error: could not connect to host. in /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:110
+Stack trace:
+#0 /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(110): AMQPConnection->connect()
+#1 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132

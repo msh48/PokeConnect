@@ -42,7 +42,7 @@ if (isset($_POST)) {
 	exit(0);
 }
 switch ($request["type"]){    
-	case "register";
+case "register":
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm = $_POST["password2"];

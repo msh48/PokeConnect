@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<html>
+	<html lang="en">
+		<head>
+			<meta http-equiv="content-type" content="text/html; charset= utf-8">
+		</head>
 
 <script>
 
@@ -6,18 +10,19 @@ function HandleLoginResponse(response)
 {
 
 	var resp = JSON.parse(response);
-	var returnCode = parseInt(resp.returnCode);
+	/*var returnCode = parseInt(resp.returnCode);
 	if (returnCode == 0){
 		document.getElementById("textResponse").innerHTML = "response: "+resp.message+"<p>";
 	}
 	else{
 		document.getElementById("textResponse").innerHTML = resp.returnCode;	
-	}
+	}*/
+	document.getElementById("textResponse").innerHTML = "response: "+resp+"<p>";
 }
 
 function SendLoginRequest(username,password)
 {
-	document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
+	//document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
 	var request = new XMLHttpRequest();
 
 	request.open("POST","../php/loginReg.php",true);
@@ -29,17 +34,17 @@ function SendLoginRequest(username,password)
 
 		if ((this.readyState == 4)&&(this.status == 200))
 		{
-			//console.log(this.responseText);
+			console.log(this.responseText);
 			HandleLoginResponse(this.responseText);
 		}		
 	}
-	request.send(null);
-	/* request.send("type=login&username="+username+"&password="+password); */
+	//request.send(null);
+	request.send("type=login&username="+username+"&password="+password);
 }
 
 function SendRegisterRequest(username, email, password, password2)
 {
-        document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
+        //document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
         var request = new XMLHttpRequest();
 
         request.open("POST","../php/loginReg.php",true);
@@ -117,7 +122,7 @@ function SendRegisterRequest(username, email, password, password2)
 								</label>
 							  </div>
  							<div>
- 									  <button type="button" class="btn btn-md" onclick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementbyId("registerPassword").value, document.getElementbyId("registerPassword2").value)' id = "registerButtonId">Register</button>
+ 									  <button type="submit" class="btn btn-md" onclick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementById("registerPassword").value, document.getElementById("registerPassword2").value)' id = "registerButtonId">Register</button>
  							</div>
 						</fieldset>
 					</form>
@@ -139,7 +144,7 @@ function SendRegisterRequest(username, email, password, password2)
 								<input type="password" name="password" id="loginPassword" class="form-control input-lg" placeholder="Password">
 							</div>
 							<div>
-								<button type="button" class="btn btn-md" onclick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
+								<button type="submit" class="btn btn-md" onclick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
 							</div>
 								 <div id="textResponse">
 	awaiting response

@@ -46,3 +46,13 @@ Stack trace:
 #1 /home/jap264/PokeConnect/db/php/dbListener.php(37): rabbitMQServer->process_requests()
 #2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
 [06-Nov-2021 15:04:05 America/New_York] PHP Notice:  Undefined index: email in /home/jap264/PokeConnect/db/php/dbListener.php on line 26
+[07-Nov-2021 18:26:22 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/bob/Documents/poke_connect/PokeConnect/db/php/dbConnection.php:12
+Stack trace:
+#0 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbFunctions.php(37): dbConnection()
+#1 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(23): login()
+#2 /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(58): requestProcessor()
+#3 [internal function]: rabbitMQServer->process_message()
+#4 /home/bob/Documents/poke_connect/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(122): AMQPQueue->consume()
+#5 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#6 {main}
+  thrown in /home/bob/Documents/poke_connect/PokeConnect/db/php/dbConnection.php on line 12

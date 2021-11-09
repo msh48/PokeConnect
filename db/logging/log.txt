@@ -56,3 +56,38 @@ Stack trace:
 #5 /home/bob/Documents/poke_connect/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
 #6 {main}
   thrown in /home/bob/Documents/poke_connect/PokeConnect/db/php/dbConnection.php on line 12
+[07-Nov-2021 20:26:48 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[07-Nov-2021 20:29:27 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[07-Nov-2021 20:34:04 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[07-Nov-2021 23:38:43 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[08-Nov-2021 13:40:37 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[08-Nov-2021 13:40:44 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132
+[08-Nov-2021 16:16:55 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPQueueException: Server channel error: 404, message: NOT_FOUND - no exchange 'dbExchange' in vhost '/' in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc:120
+Stack trace:
+#0 /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc(120): AMQPQueue->bind()
+#1 /home/jap264/PokeConnect/db/php/dbListener.php(39): rabbitMQServer->process_requests()
+#2 {main} in /home/jap264/PokeConnect/db/rabbitmqphp_example/rabbitMQLib.inc on line 132

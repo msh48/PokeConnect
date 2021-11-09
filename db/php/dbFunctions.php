@@ -9,28 +9,6 @@ require_once('../event_logging/event_logger.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'off');
 ini_set('log_errors', 'On');
-ini_set('error_log', dirname(__FILE__).'/../logging/log.txt');
-
-function logAndSendErrors(){
-	$file = fopen("/../logging/log.txt", "r");
-	$errorArray = [];
-	while(!feof($file)){
-		array_push($errorArray, fgets($file));
-	}
-	fclose($file);
-
-	$request = array();
-	$request['type'] = "db";
-	$request['error_string'] = $errorArray;
-	$returnedValue = createClientForRmq($request);
-	
-	$fp = fopen("/../logging/logHistory.txt", "a");
-	for($i = 0; $i < count($errorArray); $i++){
-		fwrite($fp, $errorArray[$i]);
-	}
-
-	file_put_contents("/../logging/log.txt", "");
-}
 
 //user login
 function login($username, $password){
@@ -43,7 +21,7 @@ function login($username, $password){
 	if($result){
 		if($result->num_rows == 0){
 			echo("No users in table.");
-			$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: this user does not exist: $username" . "\n";
+			$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ] " . "ERROR: this user does not exist: $username" . "\n";
 	                log_event($event);
 			return false;
 		}
@@ -56,7 +34,7 @@ function login($username, $password){
 					return true;
 				}
 				else{
-					$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: Username & Password do not match" . "\n";
+					$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ] " . "ERROR: Username & Password do not match" . "\n";
 			                log_event($event);
 					return false;
 				}
@@ -73,7 +51,7 @@ function  register($username, $password, $email){
 	//check username if not taken
 	if(!checkUsername($username)){
 		echo "Username is taken.".PHP_EOL;
-		$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: trying to register a taken username: $username" . "\n";
+		$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ]  " . "ERROR: trying to register a taken username: $username" . "\n";
 		log_event($event);
 		return false;
 	}

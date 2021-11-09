@@ -1,1 +1,3 @@
 Event Logging Start -----
+2021-11-09  12:03:20pm --- DataBase --- ERROR: trying to register a taken username: 
+2021-11-09  12:03:20pm --- DataBase --- ERROR: trying to register a taken username: 

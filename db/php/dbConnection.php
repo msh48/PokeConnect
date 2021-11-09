@@ -14,7 +14,7 @@
 
 		if(!$connection){
 			echo "Error connecting to database: ".$connection->connect_errno.PHP_EOL;
-			$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: cannot connect to database: " . $connection->connect_errno.PHP_EOL . "\n";
+			$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ] " . "ERROR: cannot connect to database: " . $connection->connect_errno.PHP_EOL . "\n";
 	                log_event($event);
 			exit(1);
 		}

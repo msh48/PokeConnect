@@ -4,6 +4,11 @@ require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 require_once('event_logger.php');
 
+function received_event($event_string)
+{
+        file_put_contents("log.txt", $event_string, FILE_APPEND);
+}
+
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;

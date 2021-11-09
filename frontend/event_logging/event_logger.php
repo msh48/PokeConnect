@@ -14,8 +14,8 @@
     	$request['error_message'] = $event_string;
     	
     	//send error to frontend server
-        $fe = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_fe.ini","testServer");
-        $response = $fe->publish($request);
+        //$fe = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_fe.ini","testServer");
+        //$response = $fe->publish($request);
 
     	//send error to database server
     	$db = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");

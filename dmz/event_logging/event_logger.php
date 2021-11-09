@@ -22,8 +22,8 @@
     	$response = $db->publish($request);
     	
     	//send error to dmz server
-    	$dmz = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_dmz.ini","testServer");
-    	$response = $dmz->publish($request);
+    	//$dmz = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_dmz.ini","testServer");
+    	//$response = $dmz->publish($request);
     	
     	//send error to RabbitMQ server
     	$rabbit = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_rmq.ini","testServer");

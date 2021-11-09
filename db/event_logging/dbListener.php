@@ -5,6 +5,11 @@ require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 require_once('event_logger.php');
 
+function received_event($event_string)
+{
+        file_put_contents("log.txt", $event_string, FILE_APPEND);
+}
+
 function requestProcessor($request){
 	echo "Received request".PHP_EOL;
 	echo $request['type'];
@@ -26,7 +31,7 @@ function requestProcessor($request){
 			break;
 		case "event_log":
 		      	echo "An error occurred.".PHP_EOL;
-			log_event($request['error_message']);
+			received_event($request['error_message']);
 			break;
 		default:
 			echo "default case";	

@@ -18,8 +18,8 @@
         $response = $fe->publish($request);
 
     	//send error to database server
-    	$db = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");
-    	$response = $db->publish($request);
+    	//$db = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");
+    	//$response = $db->publish($request);
     	
     	//send error to dmz server
     	$dmz = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_dmz.ini","testServer");

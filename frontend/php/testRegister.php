@@ -15,7 +15,7 @@ if($response == 1) {
 	echo "registered";
 }
 else{
-	echo "this did not work"	
+	echo "this did not work";	
 }
 echo $response;
 return $response;

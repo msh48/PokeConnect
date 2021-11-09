@@ -17,7 +17,7 @@ function requestProcessor($request)
   
   if(!isset($request['type']))
   {
-    $event = date("Y-m-d") . "  " . date("h:i:sa") . " --- RabbitMQ --- " . "ERROR: unsupported message type" . "\n";
+    $event = date("Y-m-d") . "  " . date("h:i:sa") . " [RMQ] " . "ERROR: unsupported message type" . "\n";
     log_event($event);
     return "ERROR: unsupported message type";
   }

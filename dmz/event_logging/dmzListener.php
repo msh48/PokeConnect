@@ -26,7 +26,7 @@ function requestProcessor($request)
   {
     case "event_log":
 	    echo "An error has occurred.".PHP_EOL;
-	    log_event($request['error_message']);
+	    received_event($request['error_message']);
 	    break;
 
     case "Pokemon":

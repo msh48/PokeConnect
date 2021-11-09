@@ -1,0 +1,10 @@
+2021-11-09  03:05:23pm [ DB ] ERROR: database creation failure:0
+
+2021-11-09  03:06:23pm [ DB ] ERROR: database creation failure:0
+
+2021-11-09  03:07:03pm [ DB ] ERROR: database creation failure:0
+
+2021-11-09  03:07:31pm [ DB ] ERROR: database creation failure:0
+
+2021-11-09  03:09:53pm [ DB ] ERROR: database creation failure:0
+

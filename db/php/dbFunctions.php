@@ -4,6 +4,7 @@ require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 require_once('rabbitMQClient.php');
 require_once('dbConnection.php');
+require_once('../event_logging/event_logger.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'off');
@@ -42,6 +43,8 @@ function login($username, $password){
 	if($result){
 		if($result->num_rows == 0){
 			echo("No users in table.");
+			$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: this user does not exist: $username" . "\n";
+	                log_event($event);
 			return false;
 		}
 		else {
@@ -53,6 +56,8 @@ function login($username, $password){
 					return true;
 				}
 				else{
+					$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: Username & Password do not match" . "\n";
+			                log_event($event);
 					return false;
 				}
 			}
@@ -68,6 +73,8 @@ function  register($username, $password, $email){
 	//check username if not taken
 	if(!checkUsername($username)){
 		echo "Username is taken.".PHP_EOL;
+		$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- DataBase --- " . "ERROR: trying to register a taken username: $username" . "\n";
+		log_event($event);
 		return false;
 	}
 
@@ -104,7 +111,7 @@ function checkUsername($username){
 function generateHash($password, $salt) {
 	$new = $password . $salt;
 	$hash = hash('sha256',$new);
-	echo "Hash: " . $hash.PHP_EOL;
+	//echo "Hash: " . $hash.PHP_EOL;
 	return $hash;
 }
 
@@ -120,7 +127,7 @@ function generateSalt($length) {
 		$string .= $chars[$rand];
 	}
 	
-	echo "Salt: " . $string .PHP_EOL;
+	//echo "Salt: " . $string .PHP_EOL;
 	return $string;
 }
 ?>

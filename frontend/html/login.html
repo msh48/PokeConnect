@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<html>
+	<html lang="en">
+		<head>
+			<meta http-equiv="content-type" content="text/html; charset= utf-8">
+		</head>
 
 <script>
 
@@ -6,21 +10,22 @@ function HandleLoginResponse(response)
 {
 
 	var resp = JSON.parse(response);
-	var returnCode = parseInt(resp.returnCode);
+	/*var returnCode = parseInt(resp.returnCode);
 	if (returnCode == 0){
 		document.getElementById("textResponse").innerHTML = "response: "+resp.message+"<p>";
 	}
 	else{
 		document.getElementById("textResponse").innerHTML = resp.returnCode;	
-	}
+	}*/
+	document.getElementById("textResponse").innerHTML = "response: "+resp+"<p>";
 }
 
 function SendLoginRequest(username,password)
 {
-	document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
+	//document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
 	var request = new XMLHttpRequest();
 
-	request.open("POST","../php/loginReg.php",true);
+	request.open("POST","../php/loginReg.php", true);
 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
 	//request.open("GET", "../php/loginReg.php?type=login&username=" + username + "&password=" + password, true);
 
@@ -33,13 +38,13 @@ function SendLoginRequest(username,password)
 			HandleLoginResponse(this.responseText);
 		}		
 	}
-	request.send(null);
-	/* request.send("type=login&username="+username+"&password="+password); */
+	//request.send(null);
+	request.send("type=login&username="+username+"&password="+password);
 }
 
 function SendRegisterRequest(username, email, password, password2)
 {
-        document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
+        //document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
         var request = new XMLHttpRequest();
 
         request.open("POST","../php/loginReg.php",true);
@@ -94,7 +99,10 @@ function SendRegisterRequest(username, email, password, password2)
  			<hr>
 			<div class="row">
 				<div class="col-md-5">
-					<form role="form" method="post" action="boothomepage.html" > 
+				
+					<form role="form" method="post" action="../php/register.php" > 
+					
+					<form role="form" method="post" >
 							
 							<p class="text-uppercase pull-center"> SIGN UP.</p>	
  							<div class="form-group">
@@ -113,11 +121,11 @@ function SendRegisterRequest(username, email, password, password2)
 							<div class="form-check">
 								<label class="form-check-label">
 								  <input type="checkbox" class="form-check-input">
-								  By Clicking register you're agree to our policy & terms
+								  By Clicking register you are agreeing to our policy & terms
 								</label>
 							  </div>
  							<div>
- 									  <button type="button" class="btn btn-md" onclick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementbyId("registerPassword").value, document.getElementbyId("registerPassword2").value)' id = "registerButtonId">Register</button>
+ 									  <button type="submit" class="btn btn-md" OnClick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementById("registerPassword").value, document.getElementById("registerPassword2").value)' id = "registerButtonId">Register</button>
  							</div>
 						</fieldset>
 					</form>
@@ -128,7 +136,7 @@ function SendRegisterRequest(username, email, password, password2)
 				</div>
 				
 				<div class="col-md-5">
- 				 		<form role="form" method="post">
+ 				 		<form role="form" method="post" action="../php/login.php" >
 						<fieldset>							
 							<p class="text-uppercase"> Login using your account: </p>	
  								
@@ -139,7 +147,7 @@ function SendRegisterRequest(username, email, password, password2)
 								<input type="password" name="password" id="loginPassword" class="form-control input-lg" placeholder="Password">
 							</div>
 							<div>
-								<button type="button" class="btn btn-md" onclick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
+								<button type="submit" class="btn btn-md" OnClick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
 							</div>
 								 <div id="textResponse">
 	awaiting response

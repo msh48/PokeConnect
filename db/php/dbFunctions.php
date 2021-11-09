@@ -108,4 +108,43 @@ function generateSalt($length) {
 	//echo "Salt: " . $string .PHP_EOL;
 	return $string;
 }
+
+function loadPokemonData($poke_json_string){
+	//convert pokemon json string to array
+	$poke_arr_data = json_decode($poke_json_string, true);
+	//mysql connection, setup mysql query
+	$stmt = dbConnection();
+	$name = $image = null;
+	$stmt = $stmt->prepare("INSERT INTO Pokemons (name, image) 
+							VALUES (?, ?)";
+	$stmt -> bind_param("ss", $name, $image);
+	foreach($poke_arr_data as $poke_data) {
+		//loop through array and add values for mysql table
+		$name = $poke_data['name'];
+		$image = $poke_data['image'];
+		$stmt->execute();
+		
+		// Load type data into types table
+		$last_insert_pokemon_id = mysqli_insert_id($stmt);
+		$type1 = $type2 = null;
+		$stmt = $stmt->prepare("INSERT INTO Types (type1, type2) 
+								VALUES (?, ?)";
+		$stmt -> bind_param("tt", $type1, $type2);
+		$types_in_poke_data = $poke_data[$name]['types']
+		for($x = 0; $x < count($types_in_poke_data); $x++){
+			if(isset($types_in_poke_data[$x]))
+			{
+				$typeData = $types_in_poke_data[$x]->type;
+				$typeName = $typeData['name'];
+				$type1 = $typeName;
+			} else {
+				echo "No Data Found";
+			}
+		}
+		// Load stats data into stats table
+		//TODO
+	}
+	// return a boolean for saying if all data is load
+
+}
 ?>

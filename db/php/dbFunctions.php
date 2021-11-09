@@ -110,41 +110,74 @@ function generateSalt($length) {
 }
 
 function loadPokemonData($poke_json_string){
+	$checkData = false;
 	//convert pokemon json string to array
 	$poke_arr_data = json_decode($poke_json_string, true);
 	//mysql connection, setup mysql query
 	$stmt = dbConnection();
 	$name = $image = null;
-	$stmt = $stmt->prepare("INSERT INTO Pokemons (name, image) 
-							VALUES (?, ?)";
-	$stmt -> bind_param("ss", $name, $image);
+	$type1 = $type2 = null;
+	$stmt = $stmt->prepare("INSERT INTO Pokemons (poke_name, poke_image,type1, type2) 
+							VALUES (?, ?, ?,?)");
+	$stmt -> bind_param("pppp", $name, $image, $type1, $type2);
 	foreach($poke_arr_data as $poke_data) {
 		//loop through array and add values for mysql table
 		$name = $poke_data['name'];
 		$image = $poke_data['image'];
-		$stmt->execute();
-		
-		// Load type data into types table
-		$last_insert_pokemon_id = mysqli_insert_id($stmt);
-		$type1 = $type2 = null;
-		$stmt = $stmt->prepare("INSERT INTO Types (type1, type2) 
-								VALUES (?, ?)";
-		$stmt -> bind_param("tt", $type1, $type2);
+		//Get types to load into pokemon table
 		$types_in_poke_data = $poke_data[$name]['types']
-		for($x = 0; $x < count($types_in_poke_data); $x++){
-			if(isset($types_in_poke_data[$x]))
-			{
-				$typeData = $types_in_poke_data[$x]->type;
+		for($ty = 0; $ty < count($types_in_poke_data); $ty++){
+			if(isset($types_in_poke_data[$t]) && !isset($type1)) {
+				$typeData = $types_in_poke_data[$ty]->type;
 				$typeName = $typeData['name'];
 				$type1 = $typeName;
+			} elseif (isset($type1)) {
+				$typeData = $types_in_poke_data[$ty]->type;
+				$typeName = $typeData['name'];
+				$type2 = $typeName;
 			} else {
-				echo "No Data Found";
-			}
+				echo "Error in load type data";
+			} 
 		}
+		if ($stmt->execute()) { 
+			$checkData = true;
+		} else {
+			echo "Error on add data to pokemon table";
+		}
+		$last_insert_pokemon_id = mysqli_insert_id($stmt);
 		// Load stats data into stats table
-		//TODO
+		$stats_names = array("HP","Attack","Defense","Sp.Attack","Sp.Defense","Speed");
+		$stats = array(null,null,null,null,null,null);
+		$stmt_stats = $stmt->prepare("INSERT INTO Stats (pokemon_id, HP, stat1, Att, stat2, Def, stat3, SpAtk, stat4, SpDef, stat5, Speed, stat6) 
+								VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt_stats -> bind_param(
+			"sssssssssssss", 
+			$last_insert_pokemon_id, 
+			$stats_names[0], 
+			$stats[0], 
+			$stats_names[1], 
+			$stats[1], 
+			$stats_names[2], 
+			$stats[2],
+			$stats_names[3],
+			$stats[3],
+			$stats_names[4],
+			$stats[4],
+			$stats_names[5],
+			$stats[5]);
+		$stats_in_poke_data = $poke_data['stats'];
+		for($st = 0; $st < count($stats_in_poke_data); $st++) {
+			$st_data = $stats_in_poke_data[$st];
+			$stats[$st] = $st_data['base_stat'];
+		}
+		if ($stmt_stats->excute()) { 
+			$checkData = true;
+		} else {
+			echo "Error on add stats to stats table";
+		}
+		
 	}
 	// return a boolean for saying if all data is load
-
+	return $checkData;
 }
 ?>

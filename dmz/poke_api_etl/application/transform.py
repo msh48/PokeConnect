@@ -18,6 +18,7 @@ class TransformPokemonData():
         pokeType = pokemon['types']
         pokeStats = pokemon['stats']
         pokeImg = pokemon['sprites']['front_default']
+        pokeDictStats['name'] = pokemon['name']
         pokeDictStats['types'] = pokeType
         pokeDictStats['stats'] = pokeStats
         pokeDictStats['image'] = pokeImg

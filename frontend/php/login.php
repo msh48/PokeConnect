@@ -11,11 +11,9 @@ require_once('rabbitMQClient.php');
 $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");
 
 $request = array();
-$request['type'] = "register";
+$request['type'] = "login";
 $request['username'] = $_POST["username"];
-$request['email'] = $_POST["email"];
 $request['password'] = $_POST["password"];
-$request['password2'] = $_POST["password2"];
 $response = $client->send_request($request);
 
 session_destroy();

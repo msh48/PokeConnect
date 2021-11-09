@@ -16,7 +16,7 @@ function requestProcessor($request){
 	var_dump($request);
 	
 	if(!isset($request['type'])){
-		$event = date("Y-m-d") . "  " . date("h:i:sa") . " --- Database --- " . "ERROR: unsupported message type" . "\n";
+		$event = date("Y-m-d") . "  " . date("h:i:sa") . " [DB] " . "ERROR: unsupported message type" . "\n";
     		log_event($event);
 		return array('message'=>"ERROR: Message type is not supported");
 	}

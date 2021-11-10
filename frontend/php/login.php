@@ -23,13 +23,13 @@ if($response == 1){
         /*$user = $_POST['username'];
         $email = $_POST['email'];
         $output = shell_exec("python3 emailscript.py $usr $email");*/
-        header("Location: www.testpoke.com/frontend/html/boothomepage.html");
+        header("Location: ../html/boothomepage.html");
         exit();
 } else {
         $error = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "ERROR: failed to login using Username = " . $_POST["username"] . " and Password = " . $_POST["password"] . "\n";
         log_event($error);
         //session_destroy();
-        header("Location: www.testpoke.com/frontend/html/login_failure.html");
+        header("Location: ../html/login_failure.html");
         exit();
 }
 

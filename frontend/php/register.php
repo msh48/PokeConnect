@@ -25,13 +25,13 @@ if($response == 1){
 	/*$user = $_POST['username'];
 	$email = $_POST['email'];
 	$output = shell_exec("python3 emailscript.py $usr $email");*/
-	header("Location: www.testpoke.com/frontend/html/reg_success.html");
+	header("Location: ../html/reg_success.html");
 	exit();
 } else {
 	$error = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "ERROR: failed to register using Username = " . $_POST["username"] . " and Password = " . $_POST["password"] . "\n";
 	log_event($error);
 	//session_destroy();
-	header("Location: www.testpoke.com/frontend/html/reg_failure.html");
+	header("Location: ../html/reg_failure.html");
 	exit();
 }
 

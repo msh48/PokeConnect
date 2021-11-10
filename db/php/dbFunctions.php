@@ -199,8 +199,7 @@ function getPokemonData() {
 								"Defense" => $stats_row['Defense'],
 								"SpAttack" => $stats_row['SpAttack'],
 								"SpDefense" => $stats_row['SpDefense'],
-								"Speed" => $stats_row['Speed'])
-								);
+								"Speed" => $stats_row['Speed']);
 				$pokemonInfoArr["stats"] = $statsArr;
 			} else {
 				echo "0 results for Stats Table".PHP_EOL;

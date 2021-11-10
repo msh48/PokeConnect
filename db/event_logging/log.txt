@@ -1,3 +1,43 @@
 Event Logging Start -----
 2021-11-09  12:03:20pm --- DataBase --- ERROR: trying to register a taken username: 
 2021-11-09  12:03:20pm --- DataBase --- ERROR: trying to register a taken username: 
+2021-11-10  03:35:33pm [ DB ] ERROR: this user does not exist: hey
+2021-11-10  03:35:33pm [ DB ] ERROR: this user does not exist: hey
+2021-11-10  05:18:19pm [ DB ] ERROR: Username & Password do not match
+2021-11-10  05:18:20pm [ DB ] ERROR: Username & Password do not match
+2021-11-10  05:18:19pm [ DB ] ERROR: Username & Password do not match
+2021-11-10  05:18:20pm [ DB ] ERROR: Username & Password do not match
+2021-11-10  06:06:39pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:06:39pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:06:40pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:06:40pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:06:46pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:06:46pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:07:29pm [ FE ] SUCCESS: registration successful using Username = Daniel and Password = 123
+2021-11-10  06:07:29pm [ FE ] SUCCESS: registration successful using Username = Daniel and Password = 123
+2021-11-10  06:42:38pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:38pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:38pm [ DB ]  ERROR: trying to register a taken username: Jansen
+2021-11-10  06:42:38pm [ DB ]  ERROR: trying to register a taken username: Jansen
+2021-11-10  06:42:45pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:45pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:46pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:42:46pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:42:50pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:42:50pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:42:50pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:42:50pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:43:11pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:43:11pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:43:13pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:43:13pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:49:38pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:49:38pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:50:42pm [ DB ]  ERROR: trying to register a taken username: hello
+2021-11-10  06:50:42pm [ DB ]  ERROR: trying to register a taken username: hello
+2021-11-10  06:50:45pm [ FE ] ERROR: failed to register using Username = hello and Password = 123
+2021-11-10  06:50:45pm [ FE ] ERROR: failed to register using Username = hello and Password = 123
+2021-11-10  06:51:21pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:51:21pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:54:19pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  06:54:19pm [ FE ] SUCCESS: login successful using Username = test and Password = test

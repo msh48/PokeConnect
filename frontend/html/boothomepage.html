@@ -14,6 +14,26 @@
   }
   </style>
 </head>
+		<script>
+			function HandleSearch(response){
+							var resp = JSON.parse(response);
+							if(returnCode == 0){
+											//modify the modal here
+										}
+						}
+			function SendSearch(query){
+							var request = new XMLHttpRequest();
+							request.open("POST","../php/search.php",true);
+							request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+							request.onreadystatechange = function(){
+											if((this.readyState == 4) && (this.status == 200)){
+															HandleSearch(this.responseText);
+														}
+										}
+request.send("type=search&input="+query);
+						}
+		</script>
+
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -48,8 +68,8 @@
 	<div class="container">
 
 <form method="POST" action="#">
-<input type="text" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
-<input type="button" name="search" value="Search" data-toggle="modal" data-target="#mymodal">
+<input type="text" id="search" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
+<input type="button" OnClick='SendSearch(document.getElementById("search").value)'name="search" value="Search" data-toggle="modal" data-target="#mymodal">
 </form>
 </body>
 

@@ -125,7 +125,7 @@ function loadPokemonData($poke_json_string){
 		$name = $poke_data['name'];
 		$image = $poke_data['image'];
 		//Get types to load into pokemon table
-		$types_in_poke_data = $poke_data[$name]['types']
+		$types_in_poke_data = $poke_data[$name]['types'];
 		for($ty = 0; $ty < count($types_in_poke_data); $ty++){
 			if(isset($types_in_poke_data[$t]) && !isset($type1)) {
 				$typeData = $types_in_poke_data[$ty]->type;

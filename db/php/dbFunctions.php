@@ -171,4 +171,47 @@ function loadPokemonData($poke_json_string){
 	// return a boolean for saying if all data is load
 	return $checkData;
 }
+function getPokemonData() {
+	//mysql connection, setup mysql query
+	$link = dbConnection();
+	$pokemon_sql_stmt = "SELECT pokemon_id, poke_name, poke_image, type1, type2 FROM Pokemons";
+	$result = $link->query($pokemon_sql_stmt);
+	//Load Pokemon Data into array
+	$pokemonInfoArr = array();
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			//load pokemone data into array
+			$current_pokemon_id = $row['pokemon_id'];
+			$pokemonInfoArr[$current_pokemon_id] = array(
+													"name" => $row['poke_name'],
+													"image" => $row['poke_image'],
+													"types" => array("type1" => $row['type1'],
+																	"type2" => $row['type2'])
+													);
+			$stats_sql_stmt = "SELECT HP, Attack, Defense, SpAttack, SpDefense, Speed FROM Stats WHERE WHERE pokemon_id = '$current_pokemon_id'";
+			$stats_result = $link->query($stats_sql_stmt);
+			if ($stats_result->num_rows > 0) {
+				$stats_row = $stats_result->fetch_assoc();
+				$statsArr = array(
+								"HP" => $stats_row['HP'],
+								"Attack" => $stats_row['Attack'],
+								"Defense" => $stats_row['Defense'],
+								"SpAttack" => $stats_row['SpAttack'],
+								"SpDefense" => $stats_row['SpDefense'],
+								"Speed" => $stats_row['Speed'])
+								);
+				$pokemonInfoArr["stats"] = $statsArr;
+			} else {
+				echo "0 results for Stats Table".PHP_EOL;
+			}
+
+		}
+	} else {
+		echo "0 results for Pokemons Table".PHP_EOL;
+	}
+	$pokemonInfoJson = json_encode($pokemonInfoArr);
+	return $pokemonInfoJson;
+}
+
 ?>

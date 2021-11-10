@@ -7,11 +7,15 @@ $user = 'testuser';
 $password = '12345';
 $db = 'it490';
 $table_name_users = 'users';
-$table_name_pokemon = 'pokemon';
+$table_name_pokemon = 'Pokemons';
+$table_name_stats = 'Stats';
 
 echo "Database & Table Generation Start".PHP_EOL;
 
 // Create connection
+//sudo apt install mysql-server
+//sudo apt install php-mysql
+
 $connection = new mysqli($hostname,$user,$password);
 
 if(!$connection){
@@ -44,10 +48,21 @@ if ($connection->query($query) === TRUE) {
 }
 echo PHP_EOL;
 
-$query2 = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_pokemon." (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,name VARCHAR(50) NOT NULL, type1 VARCHAR(50) NOT NULL,type2 VARCHAR(50))";
+$query2 = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_pokemon." (pokemon_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, poke_name VARCHAR(20) NOT NULL, poke_image VARCHAR(40) NOT NULL, type1 VARCHAR(10) NOT NULL, type2 VARCHAR(10))";
 
 if ($connection->query($query2) === TRUE) {
     echo "Table ".$table_name_pokemon." created successfully";
+} else {
+    echo "Error creating table: " . $connection->error;
+	$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ] " . "ERROR: pokemon table creation failure:" . $connection->connect_errno.PHP_EOL . "\n";
+        //log_event($event);
+}
+echo PHP_EOL;
+
+$query3 = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_stats." (stat_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, pokemon_id INT NOT NULL, HP INT NOT NULL, Attack INT NOT NULL, Defense INT NOT NULL, SpAttack INT NOT NULL, SpDefense INT NOT NULL, Speed INT NOT NULL)";
+
+if ($connection->query($query3) === TRUE) {
+    echo "Table ".$table_name_stats." created successfully";
 } else {
     echo "Error creating table: " . $connection->error;
 	$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ DB ] " . "ERROR: pokemon table creation failure:" . $connection->connect_errno.PHP_EOL . "\n";

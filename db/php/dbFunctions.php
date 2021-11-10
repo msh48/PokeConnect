@@ -146,24 +146,17 @@ function loadPokemonData($poke_json_string){
 		}
 		$last_insert_pokemon_id = mysqli_insert_id($stmt);
 		// Load stats data into stats table
-		$stats_names = array("HP","Attack","Defense","Sp.Attack","Sp.Defense","Speed");
 		$stats = array(null,null,null,null,null,null);
-		$stmt_stats = $stmt->prepare("INSERT INTO Stats (pokemon_id, HP, stat1, Att, stat2, Def, stat3, SpAtk, stat4, SpDef, stat5, Speed, stat6) 
+		$stmt_stats = $stmt->prepare("INSERT INTO Stats (pokemon_id, HP, Attack, Defense, SpAttack, SpDefense, Speed) 
 								VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt_stats -> bind_param(
-			"sssssssssssss", 
-			$last_insert_pokemon_id, 
-			$stats_names[0], 
+			"sssssss", 
+			$last_insert_pokemon_id,  
 			$stats[0], 
-			$stats_names[1], 
-			$stats[1], 
-			$stats_names[2], 
+			$stats[1],  
 			$stats[2],
-			$stats_names[3],
 			$stats[3],
-			$stats_names[4],
 			$stats[4],
-			$stats_names[5],
 			$stats[5]);
 		$stats_in_poke_data = $poke_data['stats'];
 		for($st = 0; $st < count($stats_in_poke_data); $st++) {

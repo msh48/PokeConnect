@@ -6,18 +6,33 @@
 
 <script>
 
+function HandleRegisterResponse(response)
+{
+
+        var resp = JSON.parse(response);
+        var returnCode = parseInt(resp.returnCode);
+        if (returnCode == 0){
+                document.getElementById("regResponse").innerHTML = "Registration successful!";
+        }
+        else{
+                document.getElementById("regResponse").innerHTML = "Registration failed, try again...";
+        }
+        //document.getElementById("loginResponse").innerHTML = "Login Failed. Try again.";
+}
+
+
 function HandleLoginResponse(response)
 {
 
 	var resp = JSON.parse(response);
-	/*var returnCode = parseInt(resp.returnCode);
+	var returnCode = parseInt(resp.returnCode);
 	if (returnCode == 0){
-		document.getElementById("textResponse").innerHTML = "response: "+resp.message+"<p>";
+		document.getElementById("loginResponse").innerHTML = "Login successful!";
 	}
 	else{
-		document.getElementById("textResponse").innerHTML = resp.returnCode;	
-	}*/
-	document.getElementById("textResponse").innerHTML = "response: "+resp+"<p>";
+		document.getElementById("loginResponse").innerHTML = "Login failed, try again...";	
+	}
+	//document.getElementById("loginResponse").innerHTML = "Login Failed. Try again.";
 }
 
 function SendLoginRequest(username,password)
@@ -55,7 +70,7 @@ function SendRegisterRequest(username, email, password, password2)
 
                 if ((this.readyState == 4)&&(this.status == 200))
                 {
-                        HandleLoginResponse(this.responseText);
+                        HandleRegisterResponse(this.responseText);
                 }
         }
         request.send("type=register&username="+username+"&email="+email+"&password="+password+"&password2="+password2);
@@ -127,6 +142,10 @@ function SendRegisterRequest(username, email, password, password2)
  							<div>
  									  <button type="submit" class="btn btn-md" OnClick='SendRegisterRequest(document.getElementById("registerUsername").value, document.getElementById("email").value, document.getElementById("registerPassword").value, document.getElementById("registerPassword2").value)' id = "registerButtonId">Register</button>
  							</div>
+
+							<div id="regResponse">
+								Awaiting Response...
+							</div>
 						</fieldset>
 					</form>
 				</div>
@@ -149,9 +168,9 @@ function SendRegisterRequest(username, email, password, password2)
 							<div>
 								<button type="submit" class="btn btn-md" OnClick='SendLoginRequest(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)' id = "loginButtonId">Login</button>
 							</div>
-								 <div id="textResponse">
-	awaiting response
-</div>
+								 <div id="loginResponse">
+									Awaiting Response...
+								 </div>
  						</fieldset>
 				</form>	
 				</div>

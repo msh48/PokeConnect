@@ -19,19 +19,19 @@ $request['password'] = $_POST["password"];
 $request['password2'] = $_POST["password2"];
 $response = $client->send_request($request);
 
-if($response == 1){
+if($response == 0){
 	$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "SUCCESS: registration successful using Username = " . $_POST["username"] . " and Password = " . $_POST["password"] . "\n";
 	log_event($event);
 	/*$user = $_POST['username'];
 	$email = $_POST['email'];
 	$output = shell_exec("python3 emailscript.py $usr $email");*/
-	header("Location: www.testpoke.com/frontend/html/reg_success.html");
+	header("Location: ../html/reg_success.html");
 	exit();
 } else {
 	$error = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "ERROR: failed to register using Username = " . $_POST["username"] . " and Password = " . $_POST["password"] . "\n";
 	log_event($error);
 	//session_destroy();
-	header("Location: www.testpoke.com/frontend/html/reg_failure.html");
+	header("Location: ../html/reg_failure.html");
 	exit();
 }
 

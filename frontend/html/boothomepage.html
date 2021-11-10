@@ -1,5 +1,5 @@
 <html lang="en">
-<head>
+<head> 
   <title>PokecConnect</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +36,68 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="teambuilder.html">Team Builder</a>
-      </li> 
+</li>
     </ul>
   </div>
 </nav>
+<title>Search</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" style type="text/css"/>
+</head>
+<body>
+	<div class="container">
+
+<form method="POST" action="#">
+<input type="text" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
+<input type="button" name="search" value="Search" data-toggle="modal" data-target="#mymodal">
+</form>
+</body>
+
+<script>
+$('form').submit(function(e){
+e.preventDefault() // do not submit form
+ // do get request
+$.get( 'search.php', { q : },function(e){
+    // then show the modal first
+    $('#mymodal').modal('show');
+    // then put the results there
+    $('#mymodal:visible .modal-content .modal-body').html(e);
+});
+});
+</script>
+
+<!-- The Modal -->
+<div class="container" style="margin-top:90px">
+  <div class="row">
+    <div class="col-sm-4">
+<div class="modal" id="mymodal">
+<div class="modal-dialog">
+<div class="modal-content">
+
+ <!-- Modal Header -->
+ <div class="modal-header">
+   <h4 class="modal-title">Information</h4>
+   <button type="button" class="close" data-dismiss="modal">&times;</button>
+ </div>
+
+ <!-- Modal body -->
+ <div class="modal-body">
+
+ </div>
+
+ <!-- Modal footer -->
+ <div class="modal-footer">
+   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+ </div>
+
+</div>
+</div>
+</div>
+
 
 
 <!-- this is the code for the username container -->
-
+<!--
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
@@ -58,6 +112,7 @@
       <input type="text" class="form-control" placeholder="Username">
     </div>
   </form>
+-->
 
 </body>
 </html>

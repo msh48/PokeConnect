@@ -33,6 +33,10 @@ function requestProcessor($request){
 		      	echo "An error occurred.".PHP_EOL;
 			received_event($request['error_message']);
 			break;
+		case "search":
+			echo "Requesting a search.".PHP_EOL;
+			$response_msg = search($request['input']);
+			break;
 		default:
 			echo "default case";	
 			break;

@@ -66,7 +66,33 @@ function  register($username, $password, $email){
 
 	return true;	
 }
-
+function search($input){
+	$connection = dbConnection();
+	$query = "SELECT * FROM Pokemons WHERE poke_name  = '$input'";
+	$result = $connection->query($query);
+	if($result){
+		if($result->num_rows == 0){
+			echo("No Pokemon with this species name.");
+			$event = date("Y-m-d") . " " . date("h:i:sa") . " [ DB ] " . "ERROR: No Pokemon with this species name: $input" . "\n";
+			log_event($event);
+			return false;
+		}
+		else{
+			while($row = $result->fetch_assoc()){
+				if($row['poke_name'] == $input){
+					echo "Pokemon Found."PHP_EOL;
+					return $row;
+				}
+				else{
+					$event = date("Y-m-d") . " " . date("h:i:sa") . " [DB] " . "ERROR: This shouldn't ever throw but if it does holy shit." . "\n";
+					log_event($event);
+					return false;
+				}
+			}
+		}
+		}
+	}
+}
 //checks if username is not taken
 function checkUsername($username){
 	

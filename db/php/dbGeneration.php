@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 require_once('../event_logging/event_logger.php');
 require_once('rabbitMQClient.php');
@@ -48,7 +49,7 @@ if ($connection->query($query) === TRUE) {
 }
 echo PHP_EOL;
 
-$query2 = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_pokemon." (pokemon_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, poke_name VARCHAR(20) NOT NULL, poke_image VARCHAR(40) NOT NULL, type1 VARCHAR(10) NOT NULL, type2 VARCHAR(10))";
+$query2 = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_pokemon." (pokemon_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, poke_name VARCHAR(20) NOT NULL, poke_image VARCHAR(180) NOT NULL, type1 VARCHAR(10) NOT NULL, type2 VARCHAR(10))";
 
 if ($connection->query($query2) === TRUE) {
     echo "Table ".$table_name_pokemon." created successfully";

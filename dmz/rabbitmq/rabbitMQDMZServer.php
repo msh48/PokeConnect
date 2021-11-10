@@ -27,7 +27,8 @@ function requestProcessor($request){
 			break;
 	}
 	//echo var_dump($response_msg);
-	echo $response_msg;
+	//echo $response_msg;
+	echo "Finish Request".PHP_EOL;
 	return $response_msg;
 }
 

@@ -27,10 +27,10 @@ case "search":
     }
     $request = array();
     $request['type'] = "search";
-    $request['input'] = $_POST["query"];
+    $request['input'] = $_POST["pokemon"];
     $response = createClientForDb($request);
     if($response == 1) {
-        $_SESSION["query"] = $_POST["query"];
+        $_SESSION["input"] = $_POST["pokemon"];
     echo "searched";
     }
     else{

@@ -12,17 +12,17 @@ require_once('../event_logging/event_logger.php');
 $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");
 
 $request = array();
-$request['type'] = "register";
-$request['username'] = $_POST["pokemon"];
+$request['type'] = "search";
+$request['input'] = $_POST["pokemon"];
 
 $response = $client->send_request($request);
 
 /*if($response == 0){
 	//$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "SUCCESS:  = " . $_POST["pokemon"]."\n";
 	//log_event($event);
-	/*$user = $_POST['username'];
+	$user = $_POST['username'];
 	$email = $_POST['email'];
-	$output = shell_exec("python3 emailscript.py $usr $email");*/
+	$output = shell_exec("python3 emailscript.py $usr $email");
 	//header("Location: ../html/reg_success.html");
 	exit();
 } else {

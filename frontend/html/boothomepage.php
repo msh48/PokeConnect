@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en">
 <head> 
   <title>PokecConnect</title>
@@ -33,7 +36,7 @@ function SendSearch(pokemon){
 		}
 	}
 
-	request.send("type=search&input="+pokemon);
+	request.send("type=search&input=snom");
 }
 </script>
 
@@ -45,20 +48,20 @@ function SendSearch(pokemon){
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="boothomepage.html">HOME</a>
+  <a class="navbar-brand" href="boothomepage.php">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="account.html">Account</a>
+        <a class="nav-link" href="account.php">Account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="forums.html">Forums</a>
+        <a class="nav-link" href="forums.php">Forums</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="teambuilder.html">Team Builder</a>
+        <a class="nav-link" href="teambuilder.php">Team Builder</a>
 </li>
     </ul>
   </div>
@@ -70,12 +73,12 @@ function SendSearch(pokemon){
 <body>
 	<div class="container">
 
-<form role="form" method="POST" action="../php/search.php">
-<input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
+<form role="form" method="post" action="../php/search.php">
+<input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="pokemon" placeholder="Search for information here"/>
 <input type="submit" OnClick='SendSearch(document.getElementById("pokemon").value)' name="search" value="Search" data-toggle="modal" data-target="#mymodal">
 </form>
 </body>
-
+<!--
 <script>
 $('form').submit(function(e){
 e.preventDefault() // do not submit form
@@ -88,7 +91,7 @@ $.get( 'search.php', { q : },function(e){
 });
 });
 </script>
-
+-->
 <!-- The Modal -->
 <div class="container" style="margin-top:90px">
   <div class="row">

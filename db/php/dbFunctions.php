@@ -80,7 +80,7 @@ function search($input){
 		else{
 			while($row = $result->fetch_assoc()){
 				if($row['poke_name'] == $input){
-					echo "Pokemon Found."PHP_EOL;
+					echo "Pokemon Found.".PHP_EOL;
 					return $row;
 				}
 				else{
@@ -89,7 +89,6 @@ function search($input){
 					return false;
 				}
 			}
-		}
 		}
 	}
 }

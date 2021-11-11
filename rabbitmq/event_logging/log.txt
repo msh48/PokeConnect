@@ -1,5 +1,4 @@
 Event Logging Start -----
-2021-11-09  12:03:20pm --- DataBase --- ERROR: trying to register a taken username: 
 2021-11-10  03:34:31pm [ DB ] ERROR: this user does not exist: hey
 2021-11-10  03:35:33pm [ DB ] ERROR: this user does not exist: hey
 2021-11-10  05:18:19pm [ DB ] ERROR: Username & Password do not match

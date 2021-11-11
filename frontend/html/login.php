@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 	<html lang="en">
 		<head>
@@ -40,7 +43,7 @@ function SendLoginRequest(username,password)
 	//document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
 	var request = new XMLHttpRequest();
 
-	request.open("POST","../php/loginReg.php", true);
+	request.open("POST","../php/login.php", true);
 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
 	//request.open("GET", "../php/loginReg.php?type=login&username=" + username + "&password=" + password, true);
 
@@ -62,7 +65,7 @@ function SendRegisterRequest(username, email, password, password2)
         //document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";
         var request = new XMLHttpRequest();
 
-        request.open("POST","../php/loginReg.php",true);
+        request.open("POST","../php/register.php",true);
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
         request.onreadystatechange= function ()

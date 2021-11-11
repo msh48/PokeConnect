@@ -27,7 +27,7 @@ case "search":
     }
     $request = array();
     $request['type'] = "search";
-    $request['username'] = $_POST["query"];
+    $request['input'] = $_POST["query"];
     $response = createClientForDb($request);
     if($response == 1) {
         $_SESSION["query"] = $_POST["query"];

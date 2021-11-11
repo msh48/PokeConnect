@@ -17,7 +17,7 @@ $request['input'] = $_POST["pokemon"];
 
 $response = $client->send_request($request);
 
-/*if($response == 0){
+if($response == 0){
 	//$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "SUCCESS:  = " . $_POST["pokemon"]."\n";
 	//log_event($event);
 	$user = $_POST['username'];

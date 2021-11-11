@@ -71,7 +71,7 @@ function SendSearch(pokemon){
 
 <form role="form" method="POST" action="../php/search.php">
 <input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
-<input type="button" OnClick='SendSearch(document.getElementById("pokemon").value)'name="search" value="Search" data-toggle="modal" data-target="#mymodal">
+<input type="submit" OnClick='SendSearch(document.getElementById("pokemon").value)'name="search" value="Search" data-toggle="modal" data-target="#mymodal">
 </form>
 </body>
 

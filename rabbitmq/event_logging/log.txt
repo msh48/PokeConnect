@@ -7,3 +7,48 @@ Event Logging Start -----
 2021-11-10  06:06:40pm [ FE ] SUCCESS: login successful using Username = test and Password = test
 2021-11-10  06:06:46pm [ FE ] SUCCESS: login successful using Username = test and Password = test
 2021-11-10  06:07:29pm [ FE ] SUCCESS: registration successful using Username = Daniel and Password = 123
+2021-11-10  06:42:38pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:38pm [ DB ]  ERROR: trying to register a taken username: Jansen
+2021-11-10  06:42:45pm [ FE ] ERROR: failed to register using Username = Jansen and Password = 123
+2021-11-10  06:42:46pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:42:50pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:42:50pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:43:11pm [ DB ]  ERROR: trying to register a taken username: jansen
+2021-11-10  06:43:13pm [ FE ] ERROR: failed to register using Username = jansen and Password = 123
+2021-11-10  06:49:38pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:50:42pm [ DB ]  ERROR: trying to register a taken username: hello
+2021-11-10  06:50:45pm [ FE ] ERROR: failed to register using Username = hello and Password = 123
+2021-11-10  06:51:21pm [ FE ] ERROR: failed to login using Username = test and Password = test
+2021-11-10  06:54:19pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  07:23:07pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10 07:24:20pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:27:11pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:53:03pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:53:09pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:54:32pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:54:51pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:57:40pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 07:57:51pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 08:02:53pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 08:03:03pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10  08:43:55pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  09:26:28pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  09:52:20pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10 09:52:30pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 09:52:33pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:02:14pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:09:20pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:09:21pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:09:23pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:24:08pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10  10:29:36pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10 10:24:46pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:24:48pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10  10:34:43pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10 10:29:50pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:30:22pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:30:23pm [ DB ] ERROR: No Pokemon with this species name: slowpoke
+2021-11-10 10:33:10pm [ DB ] ERROR: No Pokemon with this species name: 
+2021-11-10 10:33:12pm [ DB ] ERROR: No Pokemon with this species name: slowpoke
+2021-11-10  10:59:44pm [ FE ] SUCCESS: login successful using Username = test and Password = test
+2021-11-10  11:06:41pm [ FE ] SUCCESS: login successful using Username = test and Password = test

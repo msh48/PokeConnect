@@ -33,7 +33,7 @@ function SendSearch(pokemon){
 		}
 	}
 
-	request.send("type=search&input="+pokemon);
+	request.send("type=search&input=snom");
 }
 </script>
 
@@ -70,12 +70,12 @@ function SendSearch(pokemon){
 <body>
 	<div class="container">
 
-<form role="form" method="POST" action="../php/search.php">
-<input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="q" placeholder="Search for information here"/>
+<form role="form" method="post" action="../php/search.php">
+<input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="pokemon" placeholder="Search for information here"/>
 <input type="submit" OnClick='SendSearch(document.getElementById("pokemon").value)' name="search" value="Search" data-toggle="modal" data-target="#mymodal">
 </form>
 </body>
-
+<!--
 <script>
 $('form').submit(function(e){
 e.preventDefault() // do not submit form
@@ -88,7 +88,7 @@ $.get( 'search.php', { q : },function(e){
 });
 });
 </script>
-
+-->
 <!-- The Modal -->
 <div class="container" style="margin-top:90px">
   <div class="row">

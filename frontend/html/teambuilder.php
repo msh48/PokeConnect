@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html lang="en">
 <head>
   <title>PokecConnect</title>
@@ -22,20 +26,20 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="boothomepage.html">HOME</a>
+  <a class="navbar-brand" href="boothomepage.php">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="account.html">Account</a>
+        <a class="nav-link" href="account.php">Account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="forums.html">Forums</a>
+        <a class="nav-link" href="forums.php">Forums</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="teambuilder.html">Team Builder</a>
+        <a class="nav-link" href="teambuilder.php">Team Builder</a>
       </li> 
     </ul>
   </div>

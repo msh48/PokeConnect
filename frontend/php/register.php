@@ -19,7 +19,7 @@ $request['password'] = $_POST["password"];
 $request['password2'] = $_POST["password2"];
 $response = $client->send_request($request);
 
-if($response == 0){
+if($response == 1){
 	$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "SUCCESS: registration successful using Username = " . $_POST["username"] . " and Password = " . $_POST["password"] . "\n";
 	log_event($event);
 	/*$user = $_POST['username'];

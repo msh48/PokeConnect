@@ -27,8 +27,7 @@ function login($username, $password){
 		}
 		else {
 			while($row = $result->fetch_assoc()){
-				$salt = $row['salt'];
-				$h_password = generateHash($password,$salt);
+				$h_password = generateHash($password);
 				if ($row['h_password'] == $h_password){
 					echo "User Authenicated".PHP_EOL;
 					return true;
@@ -58,9 +57,9 @@ function  register($username, $password, $email){
 
 	$salt = generateSalt(29);
 
-	$h_password = generateHash($password,$salt);
+	$h_password = generateHash($password);
 
-	$new_query = "INSERT INTO users (username,email,h_password,salt) VALUES ('$username','$email','$h_password','$salt')";
+	$new_query = "INSERT INTO users (username,email,h_password,salt) VALUES ('$username','$email','$h_password')";
 
 	$result = $connection->query($new_query);
 
@@ -111,8 +110,8 @@ function checkUsername($username){
 }
 
 //hashes password to store in the db
-function generateHash($password, $salt) {
-	$new = $password . $salt;
+function generateHash($password) {
+	$new = $password . 'abcdefghjiklmaopqrstuvwxyz1234567890';
 	$hash = hash('sha256',$new);
 	//echo "Hash: " . $hash.PHP_EOL;
 	return $hash;

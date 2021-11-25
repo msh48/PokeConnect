@@ -37,7 +37,7 @@ if ($connection->query($sql) === TRUE) {
 
 $connection-> select_db($sql);
 
-$query = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_users." (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,username VARCHAR(50) NOT NULL,email VARCHAR(50) NOT NULL,h_password VARCHAR(64) NOT NULL,salt VARCHAR(30) NOT NULL,created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)";
+$query = "CREATE TABLE IF NOT EXISTS ".$db.".".$table_name_users." (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,username VARCHAR(50) NOT NULL,email VARCHAR(50) NOT NULL,h_password VARCHAR(64) NOT NULL,created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)";
     
 if ($connection->query($query) === TRUE) {
     echo "Table ".$table_name_users." created successfully";

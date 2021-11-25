@@ -73,12 +73,11 @@ function SendSearch(pokemon){
 <body>
 	<div class="container">
 
-<form role="form" method="post" action="../php/search.php">
+<form role="form" method="post">
 <input type="text" id="pokemon" class="form control mr-3 mb-2 mb-sm-0" name="pokemon" placeholder="Search for information here"/>
 <input type="submit" OnClick='SendSearch(document.getElementById("pokemon").value)' name="search" value="Search" data-toggle="modal" data-target="#mymodal">
 </form>
 </body>
-<!--
 <script>
 $('form').submit(function(e){
 e.preventDefault() // do not submit form
@@ -91,7 +90,7 @@ $.get( 'search.php', { q : },function(e){
 });
 });
 </script>
--->
+
 <!-- The Modal -->
 <div class="container" style="margin-top:90px">
   <div class="row">
@@ -106,11 +105,59 @@ $.get( 'search.php', { q : },function(e){
    <button type="button" class="close" data-dismiss="modal">&times;</button>
  </div>
 
- <!-- Modal body -->
+<?php
+session_start();
+
+if(array_key_exists('pokemon',$_POST)) {
+
+require_once('../rabbitmqphp_example/path.inc');
+require_once('../rabbitmqphp_example/get_host_info.inc');
+require_once('../rabbitmqphp_example/rabbitMQLib.inc');
+require_once('../php/rabbitMQClient.php');
+require_once('../event_logging/event_logger.php');
+
+$client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini","testServer");
+
+$request = array();
+$request['type'] = "search";
+$request['input'] = $_POST["pokemon"];
+
+$response = $client->send_request($request);
+
+if($response != NULL){
+        //$event = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "SUCCESS: pokemon found " . $_POST["pokemon"]."\n";
+        //log_event($event);
+        //$user = $_POST['username'];
+        //$email = $_POST['email'];
+        //$output = shell_exec("python3 emailscript.py $usr $email");
+        //header("Location: ../html/reg_success.html");
+        //echo '<div class="modal-body">'.json_encode($response).'</div>';
+	$name = $response['poke_name'];
+        $image_url = $response['poke_image'];
+        $type2 = $response['type2'];
+        //echo '<div class="modal-body">'.json_encode($response).'</div>';
+        echo '<div class="modal-body">
+        	<img src='.$image_url.' alt="poke">
+        	<h3>' .$name. '</h3>
+        	<h4>' .$type2. '</h4>
+        </div>';
+	exit();
+} else {
+        $error = date("Y-m-d") . "  " . date("h:i:sa") . " [ FE ] " . "ERROR: failed to return pokemon data\n";
+        log_event($error);
+        //session_destroy()
+        exit();
+}
+session_destroy();
+exit(0);
+}
+?>
+
+ <!-- Modal body 
  <div class="modal-body">
 
  </div>
-
+-->
  <!-- Modal footer -->
  <div class="modal-footer">
    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
